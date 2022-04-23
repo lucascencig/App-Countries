@@ -1,0 +1,21 @@
+.main-conteiner-landing{
+    width: 100%;
+    height: 100vh;
+    background-image: url('https://image.winudf.com/v2/image/Y29tLmNvcnJlY3QudXNlci5mcmVlYXBwX3NjcmVlbnNob3RzXzJfMjdlNTI5Yjk/screen-1.jpg?fakeurl=1&type=.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.main-tittle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    font-size: 50px;
+    color: white;
+}
+
+.enter-button{
+    
+}
