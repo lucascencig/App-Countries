@@ -7,19 +7,26 @@ module.exports = (sequelize) => {
     ID:{
       type: DataTypes.UUID,
       allowNull:false,
+      primaryKey: true,
     },
     name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
     dificultad:{
-      type: DataTypes.INTEGER, //FIJARSE COMO HACER ENTRE 1 Y 5.
+      type: DataTypes.ENUM('1', '2', '3', '4', '5'), //FIJARSE COMO HACER ENTRE 1 Y 5.
     },
     duracion:{
       type: DataTypes.STRING, 
     },
     temporada:{
       type: DataTypes.ENUM('Verano', 'Otoño', 'Invierno', 'Primavera')
-    }
+    },
+
+    // creado:{
+    //   type: DataTypes.BOOLEAN,
+    //   defaultValue: true,
+    // }
+
   });
 };
