@@ -6,18 +6,20 @@ module.exports = (sequelize) => {
   sequelize.define('activity', {
     ID:{
       type: DataTypes.UUID,
-      allowNull:false,
+      // allowNull:false,
       primaryKey: true,
+      unique: true,
+      defaultValue: DataTypes.UUIDV4
     },
     name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
     dificultad:{
-      type: DataTypes.ENUM('1', '2', '3', '4', '5'), //FIJARSE COMO HACER ENTRE 1 Y 5.
+      type: DataTypes.ENUM('1', '2', '3', '4', '5')
     },
     duracion:{
-      type: DataTypes.STRING, 
+      type: DataTypes.STRING,  
     },
     temporada:{
       type: DataTypes.ENUM('Verano', 'Otoño', 'Invierno', 'Primavera')

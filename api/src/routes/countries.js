@@ -1,90 +1,59 @@
-// var express = require("express");
-// const axios = require('axios')
-
-// var server = express();
-
-
-// // rutas
-
-// const getApiInfo = async () => {
-    
-// try{
-//    const apiAll = await axios.get('https://restcountries.com/v3/all');
-   
-//    let result = await apiAll.data.map(e => {
-//        return {
-//           imgBandera: e.flags.png,
-//           nombre: e.name.common,
-//           continente: e.continents
-//        }
-       
-//    })
-//    console.log
-// }
-// catch(e){
-//     throw new Error(e)
-// }
-
-// }
-
-// router.get('/', async (req, res) => {
-  
-
-   
-
-
-
 const express = require("express");
 const axios = require('axios')
 const router = express.Router();
 
-// const APICOMPLETA = require(".env")
+
 const {Country} = require("../db.js");
 const { query } = require("express");
+const Activity = require("../models/Activity.js");
 
 
 
-const infApi = async() => {
+//ruta TODOS LOS PAISES
+router.get('/', async(req,res)=>{ 
 
     try{
-        const apidata = await axios.get("https://restcountries.com/v3/all")
-      
-
-        let result = await apidata.data.map(e => {
-                    return {
-                    imgBandera: e.flags[0],
-                    nombre: e.name.common,
-                    continente: e.continents,
-                    
-                    
-                    
-                }
-            })
-            return result;
-  
-}
-catch(err){
-    throw new Error(err);
-}
-}
-
-// router.get("/", async(req, res)=>{
-//     res.json(await infApi())
-// })
+        const apiTotal = await axios.get("https://restcountries.com/v3/all")
+        let resultTotal = await apiTotal.data.map(e => {
+            return{
+                imgBandera: e.flags[0],
+                nombre: e.name.common,
+                continente: e.continents,
+            }
+        }) 
+        res.json(resultTotal)
+    }  
+    catch(err){
+        throw new Error(err)
+    }
+    }) 
 
 
-router.get('/', async(req,res) => {
-    const {name} = req.query
- 
-   
-    const apidataName = await axios.get(`https://restcountries.com/v3/name/${name}`)
-    // console.log(apidataName)
-    res.json(apidataName.data)
-})
+//RUTA POR QUERY
+    router.get('/?name', async(req,res) => {
+        const {name} = req.query
+     
+       try{
+        const apidataName = await axios.get(`https://restcountries.com/v3/name/${name}`)
+        const resultName = await apidataName.data.map(e => {
+            return{
+                imgBandera: e.flags[0],
+                nombre: e.name.common,
+                capital: e.capital[0],
+                poblacion: e.population,
+            }
+        })
+        res.json(resultName)
+    }
+    catch(err){
+        throw new Error(err)
+       
+    }
+    
+    })
 
 
- 
-
+//RUTA POR PARAMS
 router.get("/:idPais", async(req, res) => {
      const {idPais} = req.params
     try{
@@ -96,8 +65,8 @@ router.get("/:idPais", async(req, res) => {
                 imgBandera: e.flags[0],
                 nombre: e.name.common,
                 codLetras: e.cca3,
-                capital: e.capital,
-                continente: e.continents,
+                capital: e.capital[0],
+                continente: e.continents[0],
                 // id: e.idd,  // FIJARSE BIEN EL ID.
                 subregion: e.subregion,
                 area: e.area,  //FIJARSE COMO PONERLO EN KM2.
@@ -107,12 +76,29 @@ router.get("/:idPais", async(req, res) => {
         })
          res.json(resultCodes);
     }
-     
+      
     catch(err){
-        throw new Error(err)
+       throw new Error(err)
     }
 })  
 
+
+//ruta POST:
+
+router.post('/activity', async(req,res)=>{
+ let  {ID,nombre,dificultad,duracion, temporada, } = req.body
+
+ const activityCreated = await Activity.create({
+     ID,
+     nombre,
+     dificultad,
+     duracion,
+     temporada,
+
+ })
+
+    
+})
 
 
 module.exports = router;
