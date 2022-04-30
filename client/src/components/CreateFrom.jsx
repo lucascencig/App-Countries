@@ -15,9 +15,6 @@ export default function CreateForm(){
 
             <form action="" className={S.formulario}>
 
-                {/* <label htmlFor="">ID:</label> //FIJARSE COMO HACER PARA CREAR EL ID.
-                <input type="text" /> */}
-
 
                 <label htmlFor="">Nombre de la actividad:</label>
                 <input type="text" />
@@ -33,12 +30,26 @@ export default function CreateForm(){
                 <input type="range" min="1" max="5" />
 
                 <label htmlFor="">Duración:</label>
-                <input type="text" />
-                <p>Hs.</p>
+                <select className={S.selectDuracion} name="" id="">
+                    <option value="">1-2Hs</option>
+                    <option value="">2-3Hs</option>
+                    <option value="">3-4Hs</option>
+                    <option value="">4-5Hs</option>
+                </select>
 
                 <label htmlFor="">Temporada:</label>
-                <input type="text" />
+                <select className={S.selectTemporada} name="" id="">
+                    <option value="">Verano</option>
+                    <option value="">Invierno</option>
+                    <option value="">Primavera</option>
+                    <option value="">Otoño</option>
+                </select>
 
+
+                {/*PONER PARA SELECCIONAR PAIS PARA LA ACTIVIDAD*/}
+
+
+                    <h3 className={S.listo}>¿Listo?</h3>
                 <div className={S.btnCreateForm}>
                     <button>Crear Actividad</button>
                 </div>
