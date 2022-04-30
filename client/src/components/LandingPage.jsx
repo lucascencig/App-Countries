@@ -1,15 +1,20 @@
 import react from "react";
 import {Link} from "react-router-dom"
-import S from '..styles/LandingPage.module.css';
+import { Routes } from "react-router-dom";
+import S from '../../../client/src/styles/LandingPage.module.css';
 
 export default function LandingPage(){
     return(
 
-        <div className={S.main-conteiner-landing}>
-            <h1 className={S.main-tittle}>Countries App</h1>
+        <div className={S.mainConteinerLanding}>
+            
+            <h1 className={S.mainTittle}>Countries App</h1>
 
-            <div className={S.enter-button}>
-                <button className={S.btn-enter}>Ingresar</button>
+            <div className={S.enterButton}>
+        
+            <Link to={'/home'}>
+                <button className={S.btnEnter}>Ingresar</button>
+            </Link>
             </div>
 
 

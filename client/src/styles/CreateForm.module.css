@@ -1,0 +1,137 @@
+
+/* .containerGeneral{
+    background-image: url('https://images.pexels.com/photos/346696/pexels-photo-346696.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    width: 100%;
+    height: 100vh;
+   
+} */
+.containerForm{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    flex-direction: column;
+    width: 50%;
+    height: 80%;
+    border: solid 2px white;
+    background-color: rgba(228, 192, 34, 0.073);
+    backdrop-filter: blur(5px);
+    margin-top: 50px;
+    padding: 30px;
+    
+}
+
+.tituloForm{
+    color: rgb(255, 255, 255);
+    text-shadow: rgb(0, 0, 0) 2px 2px 2px;
+    font-size: 50px;
+}
+
+.formulario{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    flex-direction: column;
+    width: 80%;
+    height: 80%;
+    color: rgb(0, 0, 0);
+   
+}
+
+.formulario label{
+    font-size: 30px;
+    font-weight: 700;
+    color: white;
+    text-shadow: #000000 2px 2px 2px;
+    margin-bottom: 5px;
+
+}
+.formulario input{
+    width: 90%;
+    height: 30px;
+    text-align: center;
+    margin-bottom: 30px;
+    border-radius: 15px 0px  15px 0px;
+    font-size: 18px;
+   
+}
+
+.formulario .rango {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    margin-top: 50px;
+    margin-bottom: -20px;
+    width: 90%;
+}
+
+.rango .numrangoUno{
+    font-size: 18px;
+    color: greenyellow;
+}
+.rango .numrangoDos{
+    font-size: 18px;
+    color: rgb(255, 255, 47);
+}
+.rango .numrangoTres{
+    font-size: 18px;
+    color: rgb(255, 168, 47);
+}
+.rango .numrangoCuatro{
+    font-size: 18px;
+    color: rgb(255, 99, 47);
+}
+.rango .numrangoCinco{
+    font-size: 18px;
+    color: rgb(255, 47, 47);
+}
+.formulario p{
+    margin-top: -30px;
+    font-size: 25px;
+    font-weight: 700;
+    color: white;
+    text-shadow: rgb(0, 0, 0) 2px 2px 2px;
+
+}
+.btnCreateForm button{
+    width: 200px;
+    height: 50px;
+    background-color: white;
+    border-radius: 15px 0px  15px 0px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 18px;
+    font-weight: 700;
+}
+.btnCreateForm button:hover{
+    transform: scale(0.9);
+    transition: all 0.2s ease;
+    background-color: rgb(135, 150, 235);
+
+    font-weight: 700;
+}
+
+.btnVolver button{
+    width: 100px;
+    height: 30px;
+    background-color: white;
+    border-radius: 15px 0px  15px 0px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 15px;
+    font-weight: 700;
+    margin-top: 20px;
+}
+
+.btnVolver button:hover{
+    transform: scale(0.9);
+    transition: all 0.2s ease;
+    background-color: rgb(135, 150, 235);
+
+    font-weight: 700;
+}

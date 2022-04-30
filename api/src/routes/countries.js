@@ -24,7 +24,7 @@ router.get('/', async(req,res)=>{
         res.json(resultTotal)
     }  
     catch(err){
-        throw new Error(err)
+        throw new Error(err) 
     }
     }) 
 
@@ -42,14 +42,19 @@ router.get('/', async(req,res)=>{
                 capital: e.capital[0],
                 poblacion: e.population,
             }
-        })
-        res.json(resultName)
+        }) 
+        res.json(resultName) 
     }
     catch(err){
-        throw new Error(err)
+        if(!name){
+            res.status(400).send({err: "¡No escribiste ningun nombre de país!"}) 
+        }
+        if(name !== Country.name){
+            res.status(400).send({err: "¡No existe ningun país con ese nombre!"})
+        }
        
     }
-    
+     
     })
 
 
@@ -76,9 +81,14 @@ router.get("/:idPais", async(req, res) => {
         })
          res.json(resultCodes);
     }
-      
+       
     catch(err){
-       throw new Error(err)
+        if(!idPais){
+            res.status(400).send({err: "¡No escribiste ningun nombre de país!"})
+        }
+        if(idPais !== Country.idPais){
+            res.status(400).send({err: "¡No existe ningun país con ese nombre!"})
+        }
     }
 })  
 
