@@ -34,12 +34,14 @@ import S from '../../../client/src/styles/Card.module.css';
 
 export default function Countries({idPais, flags, name, capital, continents}){
     return(
-        <div>
-            <Link to={'/countries/'+ idPais}>
+        <div className={S.containerCards}>
+        <Link to={'/countries/'+ idPais}>
+        <div className={S.card} key={S.idPais}>
                       <img className={S.cardImg} src={flags} alt="bandera" />
                       <h2 className={S.cardNombre}>{name}</h2>
                       <h3 className={S.cardCapital}>Capital: {capital}</h3>
                       <h3 className={S.cardContinente}>Continente: {continents}</h3>
+        </div>
             </Link>
         </div>
     )

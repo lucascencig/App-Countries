@@ -29,6 +29,7 @@ useEffect(()=>{
 
     return(
     <div className={S.containerHome}>
+        
              <h1 className={S.tituloPrincipal}>Countries App</h1>
 
              <div className={S.navbar}>
@@ -79,21 +80,27 @@ useEffect(()=>{
 
          </div>
         
-         <div>
-            <Paginacion countriesPorPagina={countriesPorPagina} allCountries={allCountries.length} paginado={paginado}/>
+            <Paginacion  countriesPorPagina={countriesPorPagina} allCountries={allCountries.length} paginado={paginado}/>
+
+         <div className={S.conteinerCards}>
+
                 {currentCountries?.map((e) => {
                     return(
+                        
+                        <div >
                         <Countries 
-                        flags={e.flags[0]}
+                        flags={e.flags[1]}
                         name={e.name.common}
                         capital={e.capital}
                         continents={e.continents}
             
-                    />
+                        />
             
+                        </div>
                     ) 
                 })}
        </div>
+    
 
 
     </div>

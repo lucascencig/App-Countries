@@ -1,0 +1,97 @@
+.conteinerCards{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+
+.tituloPrincipal{
+    color:  white;
+    font-size: 50px;
+}
+.navbar{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin: auto;
+}
+
+.selectOne{
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+}
+.selectOne label{
+    margin-right: 5px;
+}
+.selectOne select{
+    width: 200px;
+    height: 30px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.selectTwo{
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+}
+.selectTwo label{
+    margin-right: 5px;
+}
+.selectTwo select{
+    width: 200px;
+    height: 30px;
+    text-align: center;
+    font-size: 18px;
+}
+
+
+.selectThree{
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    
+}
+.selectThree label{
+    margin-right: 5px;
+}
+.selectThree select{
+    width: 200px;
+    height: 30px;
+    text-align: center;
+    font-size: 18px;
+}
+
+
+.buscador{
+    color: white;
+    font-size: 18px;
+    font-weight: 700;    
+}
+.buscador label{
+    margin-right: 5px;
+}
+.buscador input{
+    width: 200px;
+    height: 30px;
+    margin-right: 5px;
+    text-align: center;
+    font-size: 18px;
+}
+.buscador button{
+    width: 100px;
+    height: 40px;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.btnCrear{
+    width: 150px;
+    height: 50px;
+    font-size: 18px;
+}
+
+
