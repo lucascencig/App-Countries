@@ -1,9 +1,11 @@
-import React, {useState, useEffect}  from "react";
+import {useState, useEffect}  from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {getApiTotal} from '../actions/index';
 import Countries from '../components/Card'
 import Paginacion from "./Paginado";
+import SearchBar from "../../../client/src/components/SearchBar.jsx";
+import Nav from "../../../client/src/components/Nav.jsx";
 import S from '../../../client/src/styles/Home.module.css'
 
 
@@ -12,8 +14,9 @@ export default function Home(){
 const dispatch = useDispatch();
 const allCountries = useSelector((state) => state.countryAll)
 
+
 const [curretPage, setCurrentPage] =useState(1)
-const [countriesPorPagina, setFoodsPerPage] =useState(9)
+const [countriesPorPagina, setcountriesPorPagina] =useState(9)
 const indexCountriesLast = curretPage * countriesPorPagina
 const indexCountriesFirst = indexCountriesLast - countriesPorPagina
 const currentCountries = allCountries.slice(indexCountriesFirst, indexCountriesLast)
@@ -26,6 +29,28 @@ useEffect(()=>{
 },[dispatch])
 
 
+const [paises, setPaises] = useState('');
+function onSearch(name) {
+    
+
+    fetch(`https://restcountries.com/v3/name/${name}`)
+    .then(r => r.json())
+    .then((r_json) => {
+      if(r_json.data !== undefined){
+        const paises = {
+        bandera: r_json.flags[1],
+        nombre: r_json.name.common,
+        capital: r_json.capital,
+        continente: r_json.continents
+        };
+        setPaises(oldCountries => [...oldCountries, paises]);
+      } else {
+        alert(`¡Pais no encontrado o "${name}" no es un nombre de un pais!`);
+      }
+    });
+  
+
+    }
 
     return(
     <div className={S.containerHome}>
@@ -64,13 +89,14 @@ useEffect(()=>{
                      <option value="">Menor población</option>
                  </select>
              </div>
-             <div className={S.buscador}>
+             {/* <div className={S.buscador}>
                  <label htmlFor="">Buscar Pais</label>
                  <input type="text" name="" id="" />
                  <button>Buscar</button>
-             </div>
+             </div> */}
             
-
+             
+             <Nav onSearch={onSearch}/>
 
              <div className={S.crearConteiner}>
                  <Link to={'/create'}>
@@ -89,6 +115,7 @@ useEffect(()=>{
                         
                         <div >
                         <Countries 
+                        
                         flags={e.flags[1]}
                         name={e.name.common}
                         capital={e.capital}
