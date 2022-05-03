@@ -1,6 +1,7 @@
 const initialState = {
     countryAll: [],
     countryDetail: [],
+    countryName: []
 
 }
 
@@ -19,6 +20,14 @@ export const rootReducer  = (state = initialState, action) => {
                 countryDetail: action.payload
             })
 
+        case 'GET_COUNTRY_NAME':
+            const country = state.countryAll
+            return({
+                ...state,
+                countryName: country,
+                countryAll: action.payload
+            })
+        
         
 
         default: return state

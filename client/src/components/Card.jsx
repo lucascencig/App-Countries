@@ -1,4 +1,4 @@
-import { connect } from "react-redux";
+
 import { Link } from "react-router-dom";
 import S from '../../../client/src/styles/Card.module.css';
 

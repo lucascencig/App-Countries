@@ -26,7 +26,7 @@ router.get('/', async(req,res)=>{
     catch(err){
         throw new Error(err) 
     }
-    }) 
+    })
 
 
 //RUTA POR QUERY
@@ -106,8 +106,7 @@ router.post('/activity', async(req,res)=>{
      temporada,
 
  })
-
-    
+   
 })
 
 

@@ -1,11 +1,56 @@
-export function  getApiTotal(){
+import axios from 'axios';
+
+export  function  getApiTotal(){
     return function(dispatch){
         return fetch("https://restcountries.com/v3/all")
         .then(res => res.json())
         .then(country =>
             dispatch({type: 'GET_COUNTRIES', payload: country}))
     }
+    
 }
+
+export  function getCountriesName(name){
+
+    
+    return function(dispatch){
+        return fetch(`https://restcountries.com/v3/name/${name}`)
+        .then(r => r.json())
+        .then((r_json) => {
+            
+            dispatch({type: 'GET_COUNTRY_NAME', payload: r_json})
+        })
+    }
+}
+
+export  function postActivity(payload){
+    return async function(dispatch){
+        try{
+            const respuesta = await axios.post('http://localhost:3001/activity', payload)
+            return respuesta;
+
+        }
+        catch(err){
+            console.log(err);
+        }
+    }
+
+}
+        // fetch(`https://restcountries.com/v3/name/${name}`)
+        // // console.log(`https://restcountries.com/v3/name/${name}`)
+        // .then(r => r.json())
+        // .then((r_json) => {
+        //     dispatch({type: 'GET_COUNTRY_NAME', payload: r_json})
+        //     // const paises = {
+        //     //    name: r_json?.map(e => e.name.common)
+        //     // }
+        //     // setPaises(oldCountries => [...oldCountries, paises]);
+        // //   } else {
+        // //     alert(`¡Pais no encontrado o "${name}" no es un nombre de un pais!`);
+        // //   }
+        // });
+
+
 
 // export function getCountryDetail(id){
 //     return function(dispatch){

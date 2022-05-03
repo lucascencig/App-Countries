@@ -5,21 +5,22 @@ import Card from './components/Card.jsx';
 import { BrowserRouter, Link, Route } from 'react-router-dom';
 import Countries from './components/Card';
 import Home from '../../client/src/components/Home.jsx';
-
+import Loader from './components/Loader';
 import CreateForm from '../../client/src/components/CreateFrom.jsx';
 
 
 
 function App() {
 
+ 
   return (
     <div className="App">
       
-    
+      <Loader />
     <Route exact path='/home' component={Home}/>
     <Route exact path='/' component={LandingPage}/>
     <Route exact path='/create' component={CreateForm}/>
-    
+ 
     
   
 

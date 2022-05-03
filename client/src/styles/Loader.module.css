@@ -1,0 +1,36 @@
+/* .contenedorCarga{
+    background-color: rgba(230, 224, 227, 0.236);
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    transition: all 1s ease;
+    z-index: 10000;
+}
+.contenedorCargaListo{
+    visibility: hidden;
+    opacity: 0;
+}
+
+.carga{
+    z-index: 1;
+    border: 15px solid silver;
+    border-top: groove red;
+    height: 100px;
+    width: 100px;
+    border-radius: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    margin-top: 30%;
+    animation: girar 1.2s linear infinite;
+    
+}
+@keyframes girar {
+    0%{transform: rotate(0deg); }
+    100%{transform: rotate(360deg);}
+
+ 
+} */
