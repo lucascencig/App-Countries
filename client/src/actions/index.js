@@ -28,7 +28,7 @@ export  function postActivity(payload){
         try{
             const respuesta = await axios.post('http://localhost:3001/activity', payload)
             return respuesta;
-
+            
         }
         catch(err){
             console.log(err);
@@ -36,6 +36,43 @@ export  function postActivity(payload){
     }
 
 }
+
+
+export function getActivities(payload){
+    return function(dispatch){
+        return fetch('http://localhost:3001/activity')
+        .then(r => r.json())
+        .then((r_json) => {
+            
+            dispatch({type: 'GET_ALL_ACTIVITIES', payload: r_json})
+        })
+    }
+}
+
+
+export function getDetail(name){
+    return function(dispatch){
+                return fetch(`https://restcountries.com/v3/name/${name}`)
+                .then(r => r.json())
+                .then((r_json) => {
+                    
+                    dispatch({type: 'GET_COUNTRY_DETAIL', payload: r_json})
+                })
+    }
+}
+
+// export function getDetail(id) {
+
+//     return function(dispatch){
+//         return fetch('http://localhost:3001/home/' + id)
+//         .then(r => r.json())
+//         .then((r_json) => {
+            
+//             dispatch({type: 'GET_COUNTRY_DETAIL', payload: r_json})
+//         })
+//     };
+// };
+
         // fetch(`https://restcountries.com/v3/name/${name}`)
         // // console.log(`https://restcountries.com/v3/name/${name}`)
         // .then(r => r.json())

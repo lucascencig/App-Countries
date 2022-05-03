@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import {postActivity} from '../../../client/src/actions/index';
+import Activities from '../../../client/src/components/Activity.jsx';
 import S from '../../../client/src/styles/CreateForm.module.css';
 
 export default function CreateForm(){
@@ -35,6 +36,8 @@ export default function CreateForm(){
             [e.target.name]: e.target.value
         })
     }
+
+    
     return(
 
         <div className={S.containerGeneral}>
@@ -66,6 +69,7 @@ export default function CreateForm(){
                     <option value="">3-4Hs</option>
                     <option value="">4-5Hs</option>
                 </select>
+                
 
                 <label htmlFor="">Temporada:</label>
                 <select className={S.selectTemporada} name="" id="">
@@ -75,11 +79,20 @@ export default function CreateForm(){
                     <option value="">Otoño</option>
                 </select> */}
 
+            <label htmlFor="">Dificultad:</label>
+                    <input type="text" onChange={handleChange} value={localState.dificultad} name="dificultad"/>
 
+             <label htmlFor="">Duración:</label>
+                    <input onChange={handleChange} type="text" value={localState.duracion} name="duracion" />
+                
+
+                <label htmlFor="">Temporada:</label>
+                    <input type="text" onChange={handleChange} value={localState.temporada} name="temporada"/>
+               
+                    <Activities />
                 {/*PONER PARA SELECCIONAR PAIS PARA LA ACTIVIDAD*/}
 
-
-                    <h3 className={S.listo}>¿Listo?</h3>
+                {/*<h3 className={S.listo}>¿Listo?</h3> */}
                 <div className={S.btnCreateForm}>
                     {/* <button onc>Crear Actividad</button> */}
                     <input value="Crear Actividad" type="submit" />

@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {getApiTotal} from '../actions/index';
 import Card from '../../../client/src/components/Card.jsx';
-import Countries from '../components/Card'
+import Countries from '../components/Card';
+import Activity from '../../../client/src/components/Activity.jsx';
 import Paginacion from "./Paginado";
 import SearchBar from "../../../client/src/components/SearchBar.jsx";
 import Nav from "../../../client/src/components/Nav.jsx";
@@ -95,23 +96,24 @@ useEffect(()=>{
          <div className={S.conteinerCards}>
 
 
-        
+     
 
 
                 {currentCountries?.map((e) => {
                     return(
                         
                         <div >
+                     
                         <Countries 
                         paises={paises}
                         flags={e.flags[1]}
                         name={e.name.common}
                         capital={e.capital}
                         continents={e.continents}
-            
                         />
-            
-                        {/* <Card paises={paises}/> */}
+                       
+                       
+
                         </div>
                     ) 
                 })}

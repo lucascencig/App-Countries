@@ -8,10 +8,8 @@ const { query } = require("express");
 const Activity = require("../models/Activity.js");
 
 
-
-//ruta TODOS LOS PAISES
-router.get('/', async(req,res)=>{ 
-
+const apiTotal = async function apiTotal(){
+   
     try{
         const apiTotal = await axios.get("https://restcountries.com/v3/all")
         let resultTotal = await apiTotal.data.map(e => {
@@ -26,7 +24,52 @@ router.get('/', async(req,res)=>{
     catch(err){
         throw new Error(err) 
     }
-    })
+}
+
+const dbGet = async function dbGet(){
+    try{
+        const dbData =  await Activity.findAll({ 
+            include:{model: Country,   atributes: ["name"], through:{ attributes: []}
+        }
+        })
+        console.log(dbData)
+        let resultado = await dbData?.map(r => {
+                 return {
+                     id: r.Id,
+                     name: r.name,
+                     dificultad: r.dificultad, 
+                     duracion: r.duracion,
+                     temporada: r.temporada,
+                    //  activities: Activity.Country?.map(r => r.name),
+                 }
+             });
+        return resultado;
+    }catch (err) {
+      console.error(err);
+    }
+}
+
+
+//ruta TODOS LOS PAISES
+// router.get('/', async(req,res)=>{ 
+
+//     try{
+//         const apiTotal = await axios.get("https://restcountries.com/v3/all")
+//         let resultTotal = await apiTotal.data.map(e => {
+//             return{
+//                 imgBandera: e.flags[0],
+//                 nombre: e.name.common,
+//                 continente: e.continents,
+//             }
+//         }) 
+//         res.json(resultTotal)
+//     }  
+//     catch(err){
+//         throw new Error(err) 
+//     }
+//     })
+
+
 
 
 //RUTA POR QUERY
@@ -92,22 +135,13 @@ router.get("/:idPais", async(req, res) => {
     }
 })  
 
+const apiyDB = async () => {
+    const apiTotal = await apiTotal();
+    const dbGet = dbGet();
+    const apiConDb = apiTotal.concat(dbGet);
+    return apiConDb;
+}
 
-//ruta POST:
-
-router.post('/activity', async(req,res)=>{
- let  {ID,nombre,dificultad,duracion, temporada, } = req.body
-
- const activityCreated = await Activity.create({
-     ID,
-     nombre,
-     dificultad,
-     duracion,
-     temporada,
-
- })
-   
-})
 
 
 module.exports = router;

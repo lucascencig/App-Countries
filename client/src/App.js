@@ -7,6 +7,7 @@ import Countries from './components/Card';
 import Home from '../../client/src/components/Home.jsx';
 import Loader from './components/Loader';
 import CreateForm from '../../client/src/components/CreateFrom.jsx';
+import CardDetail from '../../client/src/components/CardDetail.jsx';
 
 
 
@@ -16,7 +17,8 @@ function App() {
   return (
     <div className="App">
       
-      <Loader />
+      {/* <Loader /> */}
+    <Route exact path='/home/:id' component={CardDetail}/>
     <Route exact path='/home' component={Home}/>
     <Route exact path='/' component={LandingPage}/>
     <Route exact path='/create' component={CreateForm}/>

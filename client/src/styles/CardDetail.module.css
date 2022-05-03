@@ -1,0 +1,23 @@
+.contenedorDetail{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    flex-direction: column;
+    margin-top: 50px;
+    border: solid 2px silver;
+    width: 40%;
+    height: 800px;
+}
+
+.contenedorDetail h2{
+    color:  white;
+}
+
+.contenedorDetail h3{
+    color:  white;
+}
+
+.cargando{
+    color: white;
+}
