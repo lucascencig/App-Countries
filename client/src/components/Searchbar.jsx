@@ -43,11 +43,12 @@ function volverPaises(e){
 
   return (
    <form>
-     <input type="text" placeholder='' value={pais} onChange={handleChange}/>
-     <button type='Submit' onClick={handleSubmit} >Buscar</button>
+     
+     <input className={S.input} type="text" placeholder='Buscar' value={pais} onChange={handleChange}/>
+     <button className={S.botonBuscar} type='Submit' onClick={handleSubmit} >Buscar</button>
 
       
-     <button onSubmit={volverPaises}>Todos los paises</button>
+     <button className={S.botonTodosLosPaises} onSubmit={volverPaises}>Recargar</button>
      
    </form>
   )

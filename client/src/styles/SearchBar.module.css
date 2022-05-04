@@ -1,0 +1,56 @@
+
+
+.input{
+    width: 80px;
+    height: 30px;
+    font-size: 18px;
+    margin-right: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.2s ease;
+    background-color: rgba(248, 248, 248, 0.214);
+    color: white;
+    outline: none;
+}
+.input:focus{
+    width: 200px;
+    transition: all 0.2s ease;
+    outline: rgb(0, 255, 0) 2px solid;
+}
+
+.botonBuscar{
+    height: 30px;
+    width: 100px;
+    font-size: 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: rgba(228, 228, 228, 0.939);
+}
+.botonBuscar:hover{
+    transform: scale(0.9);
+    font-weight: 700;
+    background-color: rgb(109, 109, 237);
+}
+.botonBuscar:focus{
+    background-color: rgba(37, 241, 5, 0.406);
+}
+
+.botonTodosLosPaises{
+    height: 30px;
+    width: 110px;
+    font-size: 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-left: 5px;
+    background-color: rgba(228, 228, 228, 0.939);
+}
+.botonTodosLosPaises:hover{
+    transform: scale(0.9);
+    font-weight: 700;
+    background-color: rgb(109, 109, 237);
+}
+
+.botonTodosLosPaises:focus{
+    background-color: rgba(37, 241, 5, 0.406);
+}

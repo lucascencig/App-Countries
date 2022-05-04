@@ -89,7 +89,7 @@ export default function CreateForm(){
                 <label htmlFor="">Temporada:</label>
                     <input type="text" onChange={handleChange} value={localState.temporada} name="temporada"/>
                
-                    <Activities />
+                    {/* <Activities /> */}
                 {/*PONER PARA SELECCIONAR PAIS PARA LA ACTIVIDAD*/}
 
                 {/*<h3 className={S.listo}>¿Listo?</h3> */}

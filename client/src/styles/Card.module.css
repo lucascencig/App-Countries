@@ -25,7 +25,8 @@
 .card .cardImg{
     margin-top: 10px;
     width: 300px;
-    height: 200px;    
+    height: 200px;  
+    border-radius: 10px;  
 }
 
 .card .cardNombre{

@@ -1,23 +1,46 @@
-.contenedorDetail{
+.contenedorCardDetail{
     display: flex;
     justify-content: center;
     align-items: center;
     margin: auto;
     flex-direction: column;
     margin-top: 50px;
-    border: solid 2px silver;
+    border: solid 2px rgba(192, 192, 192, 0.404);
     width: 40%;
-    height: 800px;
+    height: 60%;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0);
+    border-radius: 15px 0px 15px 0px;
+    backdrop-filter: blur(7px);
 }
 
-.contenedorDetail h2{
+.contenedorCardDetail h2{
+    color:  white;
+    font-size: 50px;
+}
+
+.contenedorCardDetail h3{
     color:  white;
 }
 
-.contenedorDetail h3{
-    color:  white;
+.bandera{
+    border-radius: 10px;
 }
 
-.cargando{
-    color: white;
+.botonVolver{
+    margin-top: 30px;
+    width: 100px;
+    height: 30px;
+    border-radius: 15px 0px 15px 0px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.2s ease;   
+}
+
+.botonVolver:hover{
+    background-color: rgba(118, 153, 236, 0.875);
+    transition: all 0.2s ease;  
+    transform: scale(0.95);
+    font-size: 18px;
+    font-weight: 900px;
 }

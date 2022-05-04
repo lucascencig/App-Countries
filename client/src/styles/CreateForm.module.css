@@ -122,6 +122,7 @@
     transition: all 0.2s ease;
     font-size: 18px;
     font-weight: 700;
+    cursor: pointer;
     margin-top: 50px;
 }
 .btnCreateForm button:hover{

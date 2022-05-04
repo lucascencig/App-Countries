@@ -50,9 +50,9 @@ export function getActivities(payload){
 }
 
 
-export function getDetail(name){
+export function getDetail(id){
     return function(dispatch){
-                return fetch(`https://restcountries.com/v3/name/${name}`)
+                return fetch(`https://restcountries.com/v3/alpha/${id}`)
                 .then(r => r.json())
                 .then((r_json) => {
                     

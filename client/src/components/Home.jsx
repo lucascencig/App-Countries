@@ -47,8 +47,8 @@ useEffect(()=>{
 
          <div className={S.selectOne}>
              <label htmlFor="">Ordenar por continente:</label>
-                 <select name="" id="">
-                     <option value="">Todos</option>
+                 <select name="" id="" key="1">
+                     <option value="" >Todos</option>
                      <option value="">America</option>
                      <option value="">Europa</option>
                      <option value="">Asia</option>
@@ -89,7 +89,7 @@ useEffect(()=>{
 
          </div>
         
-            <Paginacion  countriesPorPagina={countriesPorPagina} allCountries={allCountries.length} paginado={paginado}/>
+            <Paginacion  countriesPorPagina={countriesPorPagina} allCountries={allCountries.length} paginado={paginado} />
 
             
 
@@ -102,9 +102,10 @@ useEffect(()=>{
                 {currentCountries?.map((e) => {
                     return(
                         
-                        <div >
+                        <div key={e.cca3}>
                      
                         <Countries 
+                        id={e.cca3}
                         paises={paises}
                         flags={e.flags[1]}
                         name={e.name.common}
