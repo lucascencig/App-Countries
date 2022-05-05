@@ -61,6 +61,10 @@ export function getDetail(id){
     }
 }
 
+export function ordenAsc(payload){
+   return {type: 'ORDER_BY_ASCENDENTE', payload: payload}
+}
+
 // export function getDetail(id) {
 
 //     return function(dispatch){

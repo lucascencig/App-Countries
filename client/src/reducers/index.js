@@ -38,14 +38,28 @@ export const rootReducer  = (state = initialState, action) => {
                     activities: action.payload
                 })
                 
-            // case 'GET_DETAIL':
-            //     return{
-            //         ...state,
-            //         detail: action.payload
-            //     }
-        
-        
+            case 'ORDER_BY_ASCENDENTE':
+                const countryOrden = action.payload === 'asc' ? state.countryAll.sort((a,b)=>{
+                    if(a.name.common.toLowerCase() > b.name.common.toLowerCase()) return 1
+                    if(a.name.common.toLowerCase() < b.name.common.toLowerCase()) return -1
+                   
+                }) : state.countryAll.sort((a,b)=>{
+                    if(a.name.common.toLowerCase() > b.name.common.toLowerCase()) return -1
+                    if(a.name.common.toLowerCase() < b.name.common.toLowerCase()) return 1;
+                
+                })
+                return({
+                    ...state,
+                    countryAll: countryOrden
+                })
+//     if(a.name.common.toLowerCase() > b.name.common.toLowerCase()) return 1
+//     else return -1
+                
+// }) : state.countryAll.sort((a,b)=>{
+//     if(a.name.common.toLowerCase() < b.name.common.toLowerCase()) return 1
+//     else return -1
 
+// })
         default: return state
     }
 }

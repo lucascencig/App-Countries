@@ -44,7 +44,8 @@ function volverPaises(e){
   return (
    <form>
      
-     <input className={S.input} type="text" placeholder='Buscar' value={pais} onChange={handleChange}/>
+     <input className={S.input} type="text" placeholder='E
+     scribir...' value={pais} onChange={handleChange}/>
      <button className={S.botonBuscar} type='Submit' onClick={handleSubmit} >Buscar</button>
 
       
