@@ -1,7 +1,7 @@
 import {useState, useEffect}  from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import {getApiTotal, ordenAsc} from '../actions/index';
+import {getApiTotal, ordenAsc, ordenPoblacion} from '../actions/index';
 import Card from '../../../client/src/components/Card.jsx';
 import Countries from '../components/Card';
 import Activity from '../../../client/src/components/Activity.jsx';
@@ -18,6 +18,7 @@ export default function Home(){
 const dispatch = useDispatch();
 const allCountries = useSelector((state) => state.countryAll)
 const [orden, setOrden] = useState(''); 
+const [ordenPorPoblacion, setOrdenPorPoblacion] = useState('');
 const [paises, setPaises] = useState([]);
 const [curretPage, setCurrentPage] =useState(1)
 const [countriesPorPagina, setcountriesPorPagina] =useState(9)
@@ -43,6 +44,13 @@ function handleFilterOrder(e){
     setOrden(`${e.target.value}`)
 }
 
+function handleFilterPoblacion(e){
+    e.preventDefault();
+    dispatch(ordenPoblacion(e.target.value))
+    setCurrentPage(1)
+    setOrdenPorPoblacion(`${e.target.value}`)
+}
+
     return(
         <div className={S.containerHome}>
         {/* <Loader /> */}
@@ -66,7 +74,7 @@ function handleFilterOrder(e){
             <div className={S.selectOne}>
                 <label htmlFor="">Ordenar por continente:</label>
                     <select name="" id="" key="1">
-                        <option value="" >Todos</option>
+                        <option>Todos</option>
                         <option value="">America</option>
                         <option value="">Europa</option>
                         <option value="">Asia</option>
@@ -80,9 +88,10 @@ function handleFilterOrder(e){
 
              <div className={S.selectThree}>
              <label htmlFor="">Poblacion</label>
-                 <select name="" id="">
-                     <option value="">Mayor población</option>
-                     <option value="">Menor población</option>
+                 <select defaultValue="Orden Alfafebético" onChange={(e) => handleFilterPoblacion(e)} name="" id="">
+                     <option>Población</option>
+                     <option value="asc">Menor población</option>
+                     <option value="desc">Mayor población</option>
                  </select>
              </div>
             

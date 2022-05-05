@@ -60,6 +60,23 @@ export const rootReducer  = (state = initialState, action) => {
 //     else return -1
 
 // })
+
+                case 'ORDER_BY_POBLACION':
+                    const countryOrdenPoblacion = action.payload === 'asc' ? state.countryAll.sort((a,b)=>{
+                        if(a.population > b.population) return 1
+                        if(a.population < b.population) return -1
+                       
+                    }) : state.countryAll.sort((a,b)=>{
+                        if(a.population > b.population) return -1
+                        if(a.population < b.population) return 1;
+                    
+                    })
+                    return({
+                        ...state,
+                        countryAll: countryOrdenPoblacion
+                    })
+
+                    
         default: return state
     }
 }
