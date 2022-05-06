@@ -31,14 +31,14 @@ function actividadCreada(e){
         [e.target.value]: e.target.value
     });
 }
-  
+
 
 
     return(
         <div>
 
-         
-           <button onChange={actividadCreada}>Ver actividades</button>
+        
+        <button onChange={actividadCreada}>Ver actividades</button>
 
 
         </div>

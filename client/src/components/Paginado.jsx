@@ -10,12 +10,12 @@ const pageNumbers = []
    
 }
 return (
-          
+        
     <nav >
-     <ul className={S.botonPagina}>
+    <ul className={S.botonPagina}>
             {
                 pageNumbers && pageNumbers.map(n => (
-                   
+                
                         <li key={n} >
                             <button  onClick= {() => paginado(n)} >{n}</button>
                         </li>

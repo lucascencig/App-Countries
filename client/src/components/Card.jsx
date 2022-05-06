@@ -7,7 +7,7 @@ import S from '../../../client/src/styles/Card.module.css';
 
 
 // function Countries(props) {
-   
+
 //     if (props.countryDetails) {
 //         return (
 //             <div className={S.containerCards}>
@@ -22,7 +22,7 @@ import S from '../../../client/src/styles/Card.module.css';
 
 //                 )
 //                 }
-               
+        
 //             </div>
 //         )}
 //           return <div>
@@ -43,16 +43,16 @@ export default function Countries({id, flags, name, capital, continents}){
         <div className={S.containerCards}>
         <Link to={'/home/' + id}>
         <div className={S.card} key={id} >
-                      <img className={S.cardImg} src={flags} alt="bandera" />
-                      <h2 className={S.cardNombre}>{name}</h2>
-                      <h3 className={S.cardCapital}>Capital: {capital}</h3>
-                      <h3 className={S.cardContinente}>Continente: {continents}</h3>
+                    <img className={S.cardImg} src={flags} alt="bandera" />
+                    <h2 className={S.cardNombre}>{name}</h2>
+                    <h3 className={S.cardCapital}>Capital: {capital}</h3>
+                    <h3 className={S.cardContinente}>Continente: {continents}</h3>
 
 
         </div>
             </Link>
 
-           
+        
         </div>
     )
 

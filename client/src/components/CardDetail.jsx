@@ -20,11 +20,11 @@ const detalle = useSelector((state) => state.countryDetail)
 const detalleE = detalle;
 
 return(
- 
+
     <div>
-      
+    
         
-      <Link to={'/home'}>
+        <Link to={'/home'}>
             <button className={S.botonVolver}>Volver</button>
         </Link>
 
@@ -32,7 +32,7 @@ return(
             <div>
                 {detalle?.map(e =>
 
-                     <div className={S.contenedorCardDetail} key={e.cca3} >
+                    <div className={S.contenedorCardDetail} key={e.cca3} >
 
                         <img className={S.bandera} src={e.flags[1]} alt="bandera" />
                         <h2>{e.name.common}</h2>
@@ -43,7 +43,7 @@ return(
                         <h3>Área: {e.area} km2</h3>
                         <h3>Población: {e.population} habitantes</h3>
                         <h4>Actividades turísticas: {e.Activities}</h4> {/*FIJARSE COMO PONER LA ACTIVIDAD TURISTICA ASOCIADA*/}
-                     </div>
+                    </div>
                 )}
             </div>
 
@@ -67,17 +67,17 @@ return(
 
 //     return(
 //         <div>
-           
+
 //             <div className={S.contenedorDetail}>
 
 //                 <img  src={flags[1]} alt="bandera" />
 //                 <h2 >nombre: {name.common}</h2>
 //                 <h3 >Capital: {capital}</h3>
                 
-                  
+                
 //                 {/* <Activities  /> */}
 //             </div>
-           
+        
 //         </div>
 
 //     )

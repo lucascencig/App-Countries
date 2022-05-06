@@ -42,14 +42,14 @@ function volverPaises(e){
 
 
   return (
-   <form>
-     
-     <input className={S.input} type="text" placeholder='Escribir...' value={pais} onChange={handleChange}/>
-     <button className={S.botonBuscar} type='Submit' onClick={handleSubmit} >Buscar</button>
+  <form>
+    
+    <input className={S.input} type="text" placeholder='Escribir...' value={pais} onChange={handleChange}/>
+    <button className={S.botonBuscar} type='Submit' onClick={handleSubmit} >Buscar</button>
 
       
-     <button className={S.botonTodosLosPaises} onSubmit={volverPaises}>Recargar</button>
-     
-   </form>
+    <button className={S.botonTodosLosPaises} onSubmit={volverPaises}>Recargar</button>
+    
+  </form>
   )
 }

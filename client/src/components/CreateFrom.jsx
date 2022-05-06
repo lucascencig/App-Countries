@@ -82,13 +82,13 @@ export default function CreateForm(){
             <label htmlFor="">Dificultad:</label>
                     <input type="text" onChange={handleChange} value={localState.dificultad} name="dificultad"/>
 
-             <label htmlFor="">Duración:</label>
+            <label htmlFor="">Duración:</label>
                     <input onChange={handleChange} type="text" value={localState.duracion} name="duracion" />
                 
 
                 <label htmlFor="">Temporada:</label>
                     <input type="text" onChange={handleChange} value={localState.temporada} name="temporada"/>
-               
+            
                     {/* <Activities /> */}
                 {/*PONER PARA SELECCIONAR PAIS PARA LA ACTIVIDAD*/}
 

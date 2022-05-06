@@ -8,7 +8,7 @@ export default function Loader(){
 
     // Window.load = function(){
     //     var loader = document.getElementById('contenedor_carga');
- 
+
     //     loader.style.visibility = "hidden";
     //     loader.style.opacity = '0';
     //  }
@@ -21,7 +21,7 @@ export default function Loader(){
     
         
         <div id="contenedor_carga" className={S.contenedor_carga}>
-           <div id="carga" className={S.carga}></div>
+            <div id="carga" className={S.carga}></div>
         </div> 
 )
 }
