@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Countries from "./Card";
 import Activities from "./Activity";
-import { getDetail } from "../../../client/src/actions/index";
+import { getDetail, getActivities } from "../../../client/src/actions/index";
 import S from '../../../client/src/styles/CardDetail.module.css';
 
 
@@ -19,17 +19,25 @@ useEffect(()=>{
 const detalle = useSelector((state) => state.countryDetail)
 const detalleE = detalle;
 
+const actividades = useSelector((state) => state.activities)
+console.log(actividades)
+
+
+
 return(
 
     <div>
     
-        
+   
+
         <Link to={'/home'}>
             <button className={S.botonVolver}>Volver</button>
         </Link>
 
         
             <div>
+
+   
                 {detalle?.map(e =>
 
                     <div className={S.contenedorCardDetail} key={e.cca3} >
@@ -42,7 +50,15 @@ return(
                         <h3>Subregión: {e.subregion}</h3>
                         <h3>Área: {e.area} km2</h3>
                         <h3>Población: {e.population} habitantes</h3>
-                        <h4>Actividades turísticas: {e.Activities}</h4> {/*FIJARSE COMO PONER LA ACTIVIDAD TURISTICA ASOCIADA*/}
+                       
+                        {actividades.map(e =>
+                        <div className={S.actividades}>
+    <h4><u>Actividad turística:</u> {e.name}</h4>
+    <h5><u>Dificultad:</u> {e.dificultad}</h5>
+    <h5><u>Duración:</u> {e.duracion} horas</h5>
+    <h5><u>Temporada:</u> {e.temporada}</h5>
+    </div>
+              )}          
                     </div>
                 )}
             </div>

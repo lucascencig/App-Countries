@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import {postActivity} from '../../../client/src/actions/index';
+import {postActivity, getActivities} from '../../../client/src/actions/index';
 import Activities from '../../../client/src/components/Activity.jsx';
 import S from '../../../client/src/styles/CreateForm.module.css';
 
@@ -37,6 +37,9 @@ export default function CreateForm(){
         })
     }
 
+    useEffect(()=>{
+        dispatch(getActivities());
+    },[])
     
     return(
 
@@ -92,10 +95,14 @@ export default function CreateForm(){
                     {/* <Activities /> */}
                 {/*PONER PARA SELECCIONAR PAIS PARA LA ACTIVIDAD*/}
 
+             
+                  <input type="text" name="" id=""  value="ARG"/>
+                
+
                 {/*<h3 className={S.listo}>¿Listo?</h3> */}
                 <div className={S.btnCreateForm}>
-                    {/* <button onc>Crear Actividad</button> */}
-                    <input value="Crear Actividad" type="submit" />
+                    {/* <button onChange={getActivities}>Crear Actividad</button> */}
+                    <input onChange={getActivities} value="Crear Actividad" type="submit" />
                 </div>
 
                 <div className={S.btnVolver}>

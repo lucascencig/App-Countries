@@ -1,4 +1,5 @@
 const express = require("express");
+// const {  Activities } = require("../../../client/src/components/Activity");
 const router = express.Router();
 require('dotenv').config();
 
@@ -6,14 +7,22 @@ const {Activity, Country} = require("../db");
 
 
 router.post('/', async(req,res, next)=>{
-    const { name, dificultad, duracion, temporada} = req.body
+    const { name, dificultad, duracion, temporada, paiss} = req.body
 
     try{
+
         let activityCreate = await Activity.create({
              name, dificultad, duracion, temporada
         })
+        paiss.map(async (countryId) => {
+            const foundCountry = await Country.findAll({
+              where: { idPais: countryId },
+            });
+            if (foundCountry) activityCreate.addCountries(foundCountry);
+          });
+       
         res.send("Actividad Creada!")
-
+        // console.log(activityCreate)
     }
     catch(err){
             next(err)

@@ -44,3 +44,25 @@
     font-size: 18px;
     font-weight: 900px;
 }
+.actividades{
+    width: 50%;
+    height: 10%;
+    border: solid rgba(255, 0, 0, 0) 1px;
+    color: rgb(243, 243, 243);
+    font-size: 18px;
+    margin-bottom: 10px;
+    background-color: rgba(128, 128, 128, 0.292);
+    border-radius: 10px;
+}
+.actividades h4 u{
+    color: rgb(2, 218, 2);
+    text-shadow: rgba(0, 0, 0, 0.528) 2px 2px 2px;
+    letter-spacing: 2px;
+}
+.actividades h5 u{
+    color: rgb(152, 152, 152);
+    text-shadow: rgba(0, 0, 0, 0.528) 2px 2px 2px;
+    font-size: 18px;
+    letter-spacing: 2px;
+}
+

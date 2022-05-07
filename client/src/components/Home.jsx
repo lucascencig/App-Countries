@@ -1,7 +1,7 @@
 import {useState, useEffect}  from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import {getApiTotal, ordenAsc, ordenPoblacion, ordenContinente} from '../actions/index';
+import {getApiTotal, ordenAsc, ordenPoblacion, ordenContinente, getActivities} from '../actions/index';
 import Card from '../../../client/src/components/Card.jsx';
 import Countries from '../components/Card';
 import Activity from '../../../client/src/components/Activity.jsx';
@@ -36,7 +36,9 @@ useEffect(()=>{
     dispatch(getApiTotal());
 },[dispatch])
 
-
+useEffect(()=>{
+    dispatch(getActivities());
+},[])
 
 
 function handleFilterOrder(e){
@@ -76,7 +78,7 @@ const currentCountries =  continentFiltro.slice(indexCountriesFirst, indexCountr
         <div className={S.containerHome}>
         {/* <Loader /> */}
 
-
+        
 
 
             <h1 className={S.tituloPrincipal}>Countries App</h1>
@@ -135,6 +137,10 @@ const currentCountries =  continentFiltro.slice(indexCountriesFirst, indexCountr
                 <button className={S.btnCrear}>Crear Actividad</button>
                 </Link>
             </div>
+
+         
+            
+       
 
         </div>
         

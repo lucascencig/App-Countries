@@ -23,8 +23,31 @@
     font-family: 'Noto Serif', serif;
     
 }
-
-
+.mundo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-top: 200px;
+    width: 200px;
+    height: 200px;
+    border: solid 1px red;
+    border-radius: 50%;
+    background-color: rgba(0, 255, 255, 0.486);
+}
+.continentes{
+    width: 50px;
+    height: 50px;
+    border: solid 1px red;
+    background-color: green;
+    border-radius: 50%;
+    transform: translateY(50px)translateX(50px);
+    animation: girar 5s linear infinite;
+}
+@keyframes girar {
+    0%{ transform: translateY(50px)translateX(50px);}
+    10%{ transform: translateY(50px)translateX(40px);}
+}
 
 
 

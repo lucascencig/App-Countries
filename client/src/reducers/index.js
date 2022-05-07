@@ -33,11 +33,13 @@ export const rootReducer  = (state = initialState, action) => {
 
 
             case 'GET_ALL_ACTIVITIES':
-
+                console.log(action.payload)
                 return({
                     ...state,
                     activities: action.payload
                 })
+
+
                 
             case 'ORDER_BY_ASCENDENTE':
                

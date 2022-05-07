@@ -8,29 +8,31 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING(3),
       primaryKey: true,
       allowNull: false,
+      unique: true,
+     
     },
     name: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING, 
       allowNull: false,
     },
-    imagen:{
+    imagen:{ 
       type: DataTypes.BLOB, //BUSCAR DATATYPE PARA IMAGEN.
-      allowNull: false,
+      // allowNull: false,
     },
     continente:{
       type: DataTypes.STRING,
-      allowNull: false,
+      // allowNull: false, 
     },
     capital:{
       type: DataTypes.STRING,
-      allowNull: false,
+       
     },
     subregion:{
       type: DataTypes.STRING,
 
     },
     area:{
-      type: DataTypes.INTEGER,
+      type: DataTypes.REAL,
     },
     poblacion:{
       type: DataTypes.INTEGER,

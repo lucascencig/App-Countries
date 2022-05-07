@@ -17,7 +17,9 @@ export default function LandingPage(){
             </Link>
             </div>
 
-
+<div className={S.mundo}>
+    <div className={S.continentes}></div>
+</div>
         </div>
     )
 }

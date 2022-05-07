@@ -50,24 +50,24 @@ const dbGet = async function dbGet(){
 }
 
 
-//ruta TODOS LOS PAISES
-// router.get('/', async(req,res)=>{ 
+// ruta TODOS LOS PAISES
+router.get('/', async(req,res)=>{ 
 
-//     try{
-//         const apiTotal = await axios.get("https://restcountries.com/v3/all")
-//         let resultTotal = await apiTotal.data.map(e => {
-//             return{
-//                 imgBandera: e.flags[0],
-//                 nombre: e.name.common,
-//                 continente: e.continents,
-//             }
-//         }) 
-//         res.json(resultTotal)
-//     }  
-//     catch(err){
-//         throw new Error(err) 
-//     }
-//     })
+    try{
+        const apiTotal = await axios.get("https://restcountries.com/v3/all")
+        let resultTotal = await apiTotal.data.map(e => {
+            return{
+                imgBandera: e.flags[0],
+                nombre: e.name.common,
+                continente: e.continents,
+            }
+        }) 
+        res.json(resultTotal)
+    }  
+    catch(err){
+        throw new Error(err) 
+    }
+    })
 
 
 

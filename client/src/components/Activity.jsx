@@ -3,7 +3,7 @@ import { getActivities } from "../../../client/src/actions/index";
 import { useDispatch, useSelector } from 'react-redux';
 
 
-export default function Activities(name, dificultad ,duracion, temporada ){
+export default function Activities(){
 
     const dispatch = useDispatch();
     const activities = useSelector((state) => state.activities)
