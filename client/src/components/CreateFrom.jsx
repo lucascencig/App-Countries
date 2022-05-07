@@ -1,20 +1,22 @@
 import React, {useState, useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import {postActivity, getActivities} from '../../../client/src/actions/index';
+import {postActivity, getActivities, getApiTotal} from '../../../client/src/actions/index';
 import Activities from '../../../client/src/components/Activity.jsx';
 import S from '../../../client/src/styles/CreateForm.module.css';
 
 export default function CreateForm(){
 
     const dispatch = useDispatch();
-
+    const activi = useSelector(state => state.countryAll)
+    
     const [localState, setLocalState] = useState({
         ID: "",
         name: "",
         dificultad: "",
         duracion: "",
-        temporada: ""
+        temporada: "",
+        paiss: []
     }) 
 
     async function handleSubmit(e){
@@ -23,7 +25,8 @@ export default function CreateForm(){
             name: "",
             dificultad: "",
             duracion: "",
-            temporada: ""
+            temporada: "",
+            paiss: []
         })
         e.preventDefault()
         dispatch(postActivity(localState))
@@ -40,6 +43,20 @@ export default function CreateForm(){
     useEffect(()=>{
         dispatch(getActivities());
     },[])
+    
+    useEffect(()=>{
+        dispatch(getApiTotal());
+    },[])
+    
+    function countrySelect(e){
+        if(!localState.paiss.includes(e.target.value)){
+            setLocalState({
+                ...localState,
+                paiss: [...localState.paiss, e.target.value]
+            })
+        }
+        console.log(localState)
+    }
     
     return(
 
@@ -95,9 +112,23 @@ export default function CreateForm(){
                     {/* <Activities /> */}
                 {/*PONER PARA SELECCIONAR PAIS PARA LA ACTIVIDAD*/}
 
-             
-                  <input type="text" name="" id=""  value="ARG"/>
-                
+
+                <select  onChange={(e) => countrySelect(e)}>
+                    <option disabled>Paises</option>
+                    {activi?.map((e) => 
+                    <option value={e.cca3} key={e.cca3}>{e.name.common}</option>
+                    
+                    )}
+                </select>
+
+                <div className={S.paisesSeleccionados}>
+                  {/* {localState.paiss?.map((e)=>{
+                      
+                          <p>{localState.paiss}</p>
+                    
+                  })} */}
+                 <p>{localState.paiss.join(', ')}  </p> 
+                </div>
 
                 {/*<h3 className={S.listo}>¿Listo?</h3> */}
                 <div className={S.btnCreateForm}>

@@ -151,3 +151,10 @@
 
     font-weight: 700;
 }
+
+.paisesSeleccionados {
+    color: white;
+    width: 90%;
+    height: 50px;
+    margin-top: 50px;
+}
