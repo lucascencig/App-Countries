@@ -49,7 +49,7 @@
     margin-right: 5px;
 }
 .selectTwo select{
-    width: 200px;
+    width: 100px;
     height: 30px;
     text-align: center;
     font-size: 18px;
@@ -72,7 +72,7 @@
     margin-right: 5px;
 }
 .selectThree select{
-    width: 200px;
+    width: 170px;
     height: 30px;
     text-align: center;
     font-size: 18px;
@@ -96,7 +96,7 @@
     margin-right: 5px;
 }
 .selectFour select{
-    width: 200px;
+    width: 150px;
     height: 30px;
     text-align: center;
     font-size: 18px;

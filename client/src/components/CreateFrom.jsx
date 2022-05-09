@@ -19,10 +19,38 @@ export default function CreateForm(){
     const activi = useSelector(state => state.countryAll)
     
 
-//     const [error, setError] = useState('')
-// function validarInputName(e){
-//     if(/\d/.test(e.target.value)){
-//         setError('LALA')
+    const [error, setError] = useState('')
+
+function validarInputName(e){
+    if(/\d/.test(e.target.value)){
+        setError('Los datos no son validos.')
+    }else{
+        setError('')
+    }
+    handleChange(e)
+}
+
+function validarInputDificultad(e){
+    if(!/\d/.test(e.target.value)){
+        setError('Los datos no son validos1')
+    }else{
+        setError('')
+    }
+    handleChange(e)
+}
+
+function validarInputTemporada(e){
+    if(e.target.value.toLowerCase() === 'verano' || e.target.value.toLowerCase() === 'invierno' || e.target.value.toLowerCase() === 'otoño' || e.target.value.toLowerCase() === 'primavera' ){
+       setError('')
+    }else{
+        setError('Debe tener un valor de temporada')
+    }
+    handleChange(e)
+}
+
+// function validarInputPais(e){
+//     if(!){
+//         setError('Debe seleccionar al menos un pais para la actividad')
 //     }else{
 //         setError('')
 //     }
@@ -35,10 +63,13 @@ export default function CreateForm(){
         dificultad: "",
         duracion: "",
         temporada: "",
-        countries: [''],
+        countries: [],
     }) 
+    
 
     async function handleSubmit(e){
+        
+        if(localState.countries.length > 0){
         dispatch(postActivity(localState))
         setLocalState({
             ID: "",
@@ -49,9 +80,13 @@ export default function CreateForm(){
             countries: []
         })
         e.preventDefault()
-   
+        
         alert("Actividad creada");
+    }else{
+        alert('Debe selecionar al menos un pais para la actividad.')
     }
+    }
+    
 
     async function handleChange(e){
         setLocalState({
@@ -86,13 +121,15 @@ export default function CreateForm(){
 
             <h2 className={S.tituloForm}>¡Creá tu propia actividad!</h2>
 
+
             <form onSubmit={handleSubmit} className={S.formulario} id="form">
 
-
+              
                 <label htmlFor="">Nombre de la actividad:</label>
-                <input  onChange={handleChange} value={localState.name} name="name" type="text" placeholder="Nombre" />
-                {/* <p className={S.error}>El nombre no puede estar vacio ni contener numeros.</p> */}
-       
+                <input  onChange={validarInputName} value={localState.name} name="name" type="text" placeholder="Nombre" />
+                <div className={S.error}>
+              <p>  {error !== 'Los datos no son validos.'? null :  <p >El nombre no puede estar vacio ni contener numeros.</p> }  </p>
+                </div>
 
             
                  <label htmlFor="">Dificultad (1/5):</label>
@@ -103,10 +140,10 @@ export default function CreateForm(){
                     <p className={S.numrangoCuatro}>4</p>
                     <p className={S.numrangoCinco}>5</p>
                 </div>
-                <input  className={S.inpRange} onChange={handleChange} value={localState.dificultad} name="dificultad" type="range" min="1" max="5"  />
-                {/* <p className={S.error}>La dificultad es obligatoria de 1 a 5.</p> */}
-
-
+                <input  className={S.inpRange} onChange={validarInputDificultad} value={localState.dificultad} name="dificultad" type="range" min="1" max="5"  />
+                <div className={S.error}>
+              <p>  {error !== 'Los datos no son validos1'? null  : <p className={S.error}>La dificultad es obligatoria de 1 a 5.</p> }</p>
+                </div>
                     <label htmlFor="">Duración: (Horas)</label>
                     <div className={S.rangoDuracion}>
                     <p className={S.numrangoUno}>1</p>
@@ -119,9 +156,11 @@ export default function CreateForm(){
                     {/* <p className={S.error}>La duración es obligatoria de 1 a 5.</p> */}
 
                 <label htmlFor="">Temporada: "Verano", "Invierno", "Otoño", "Primavera"</label>
-                    <input  type="text" onChange={handleChange} value={localState.temporada} name="temporada" placeholder="Temporada"/>
+                    <input  type="text" onChange={validarInputTemporada} value={localState.temporada} name="temporada" placeholder="Temporada"/>
                     {/* <p className={S.error}>Debe tener una temporada para la actividad.</p> */}
-            
+            <div className={S.error}>
+                <p>{error !== 'Debe tener un valor de temporada'? null  : <p className={S.error}>Debe tener una temporada para la actividad</p> } </p>
+            </div>
                     <label htmlFor="">¿A que país/países quieres agregarle la actividad?</label>
                 <select id="select" className={S.selectPais} onChange={(e) => countrySelect(e)}>
                     <option disabled defaultValue="pais">Paises</option>
