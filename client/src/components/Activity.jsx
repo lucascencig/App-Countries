@@ -13,7 +13,6 @@ export default function Activities(){
         dificultad: "",
         duracion: "",
         temporada: "",
-  
 });
 
 
@@ -21,10 +20,8 @@ useEffect(()=>{
     dispatch(getActivities());
 },[dispatch])
 
-console.log(activity)
+
 function actividadCreada(e){
-    
-    console.log(setActivity())
     e.preventDefault()
     dispatch(getActivities(activity))
     setActivity({

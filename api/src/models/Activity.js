@@ -7,8 +7,8 @@ module.exports = (sequelize) => {
     ID:{
       type: DataTypes.UUID,
       allowNull:false,
-      primaryKey: true,
       unique: true,
+      primaryKey: true,
       defaultValue: DataTypes.UUIDV4
     },
     name: {
@@ -28,12 +28,5 @@ module.exports = (sequelize) => {
       type: DataTypes.ENUM('Verano', 'Otoño', 'Invierno', 'Primavera', 'verano', 'otoño', 'invierno', 'primavera'),
       allowNull: false
     }
-    
-    
-    // creado:{
-    //   type: DataTypes.BOOLEAN,
-    //   defaultValue: true,
-    // }
-
   });
 };

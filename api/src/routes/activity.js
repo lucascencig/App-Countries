@@ -1,5 +1,4 @@
 const express = require("express");
-// const {  Activities } = require("../../../client/src/components/Activity");
 const router = express.Router();
 
 
@@ -8,21 +7,17 @@ router.use(express.json())
 
 router.post('/', async(req,res, next)=>{
     const { name, dificultad, duracion, temporada, countries} = req.body
-
     try{
-
         let activityCreate = await Activity.create({
-             name, dificultad, duracion, temporada
+            name, dificultad, duracion, temporada
         })
         countries.map(async (countryId) => {
             const foundCountry = await Country.findAll({
-              where: { idPais: countryId },
+                where: { idPais: countryId },
             });
             if (foundCountry) activityCreate.addCountries(foundCountry);
-          });
-       
+        });
         res.status(201).send("Actividad Creada!")
-        // console.log(activityCreate)
     }
     catch(err){
             next(err)
@@ -36,7 +31,6 @@ router.get('/', async(req,res)=>{
             include:{model: Country,   attributes: ["name", "idPais"]}
     })
         res.json(dbData)
-      
     }catch (err) {
     console.error(err);
     }

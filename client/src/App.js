@@ -17,15 +17,11 @@ function App() {
   return (
     <div className="App">
       
-      {/* <Loader /> */}
     <Route exact path='/home/:id' component={CardDetail}/>
     <Route exact path='/home' component={Home}/>
     <Route exact path='/' component={LandingPage}/>
     <Route exact path='/create' component={CreateForm}/>
  
-    
-  
-
     </div>
   );
 }

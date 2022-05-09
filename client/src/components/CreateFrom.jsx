@@ -8,19 +8,6 @@ import S from '../../../client/src/styles/CreateForm.module.css';
 export default function CreateForm(){
     
 //VALIDACION DE FORMULARIO:
-
-// const nameRegex = RegExp(/^[a-zA-Z]{5, 20}$/)
-// const dificultadRegex = RegExp(/^[1-5]$/)
-// const duracionRegex = RegExp(/^[1-5]$/)
-// const temporadaRegex = RegExp(/^[a-zA-Z]$/)
-
-//RESTO DE FUNCIONES:
-    const dispatch = useDispatch();
-    const activi = useSelector(state => state.countryAll)
-    
-
-    const [error, setError] = useState('')
-
 function validarInputName(e){
     if(/\d/.test(e.target.value)){
         setError('Los datos no son validos.')
@@ -48,14 +35,12 @@ function validarInputTemporada(e){
     handleChange(e)
 }
 
-// function validarInputPais(e){
-//     if(!){
-//         setError('Debe seleccionar al menos un pais para la actividad')
-//     }else{
-//         setError('')
-//     }
-//     handleChange(e)
-// }
+//RESTO DE FUNCIONES:
+const dispatch = useDispatch();
+const activi = useSelector(state => state.countryAll)
+
+
+const [error, setError] = useState('')
 
     const [localState, setLocalState] = useState({
         ID: "",
@@ -124,43 +109,52 @@ function validarInputTemporada(e){
 
             <form onSubmit={handleSubmit} className={S.formulario} id="form">
 
-              
+                {/* NOMBRE DE LA ACTIVIDAD */}
                 <label htmlFor="">Nombre de la actividad:</label>
                 <input  onChange={validarInputName} value={localState.name} name="name" type="text" placeholder="Nombre" />
-                <div className={S.error}>
-              <p>  {error !== 'Los datos no son validos.'? null :  <p >El nombre no puede estar vacio ni contener numeros.</p> }  </p>
-                </div>
+                    <div className={S.error}>
+                        <p>{error !== 'Los datos no son validos.'? null :  <p >El nombre no puede estar vacio ni contener numeros.</p>}</p>
+                    </div>
 
             
-                 <label htmlFor="">Dificultad (1/5):</label>
-                <div className={S.rango}>
-                    <p className={S.numrangoUno}>1</p>
-                    <p className={S.numrangoDos}>2</p>
-                    <p className={S.numrangoTres}>3</p>    
-                    <p className={S.numrangoCuatro}>4</p>
-                    <p className={S.numrangoCinco}>5</p>
-                </div>
-                <input  className={S.inpRange} onChange={validarInputDificultad} value={localState.dificultad} name="dificultad" type="range" min="1" max="5"  />
-                <div className={S.error}>
-              <p>  {error !== 'Los datos no son validos1'? null  : <p className={S.error}>La dificultad es obligatoria de 1 a 5.</p> }</p>
-                </div>
+                {/* DIFICULTAD */}
+                <label htmlFor="">Dificultad (1/5):</label>
+                    <div className={S.rango}>
+                        <p className={S.numrangoUno}>1</p>
+                        <p className={S.numrangoDos}>2</p>
+                        <p className={S.numrangoTres}>3</p>    
+                        <p className={S.numrangoCuatro}>4</p>
+                        <p className={S.numrangoCinco}>5</p>
+                    </div>
+                    <input  className={S.inpRange} onChange={validarInputDificultad} value={localState.dificultad} name="dificultad" type="range" min="1" max="5"  />
+                        <div className={S.error}>
+                            <p>{error !== 'Los datos no son validos1'? null  : <p className={S.error}>La dificultad es obligatoria de 1 a 5.</p>}</p>
+                        </div>
+
+
+                {/* DURACION */}
                     <label htmlFor="">Duración: (Horas)</label>
                     <div className={S.rangoDuracion}>
-                    <p className={S.numrangoUno}>1</p>
-                    <p className={S.numrangoDos}>2</p>
-                    <p className={S.numrangoTres}>3</p>    
-                    <p className={S.numrangoCuatro}>4</p>
-                    <p className={S.numrangoCinco}>5</p>
-                </div>
+                        <p className={S.numrangoUno}>1</p>
+                        <p className={S.numrangoDos}>2</p>
+                        <p className={S.numrangoTres}>3</p>    
+                        <p className={S.numrangoCuatro}>4</p>
+                        <p className={S.numrangoCinco}>5</p>
+                    </div>
                     <input  className={S.inpRange} onChange={handleChange} type="range" value={localState.duracion} name="duracion" min="1" max="5"/>
                     {/* <p className={S.error}>La duración es obligatoria de 1 a 5.</p> */}
 
+
+                {/* TEMPORADA */}
                 <label htmlFor="">Temporada: "Verano", "Invierno", "Otoño", "Primavera"</label>
                     <input  type="text" onChange={validarInputTemporada} value={localState.temporada} name="temporada" placeholder="Temporada"/>
                     {/* <p className={S.error}>Debe tener una temporada para la actividad.</p> */}
-            <div className={S.error}>
-                <p>{error !== 'Debe tener un valor de temporada'? null  : <p className={S.error}>Debe tener una temporada para la actividad</p> } </p>
-            </div>
+                        <div className={S.error}>
+                            <p>{error !== 'Debe tener un valor de temporada'? null  : <p className={S.error}>Debe tener una temporada para la actividad</p> } </p>
+                        </div>
+
+
+                {/* SELECCION DE PAIS */}
                     <label htmlFor="">¿A que país/países quieres agregarle la actividad?</label>
                 <select id="select" className={S.selectPais} onChange={(e) => countrySelect(e)}>
                     <option disabled defaultValue="pais">Paises</option>
@@ -174,18 +168,22 @@ function validarInputTemporada(e){
                  <p>{localState.countries.join(' ')}  </p> 
                 </div>
 
-                {/*<h3 className={S.listo}>¿Listo?</h3> */}
+
+                {/* BOTON CREAR ACTIVIDAD */}
+                <h3 className={S.listo}>¿Listo?</h3>
                 <div className={S.btnCreateForm}>
                     {/* <button onChange={getActivities}>Crear Actividad</button> */}
                     <button id="boton" onChange={getActivities} value="Crear Actividad" type="submit" >Crear Actividad</button>
                 </div>
                 {/* <p className={S.error}>¡Debe completar todos los datos para crear!</p> */}
 
-                <div className={S.btnVolver}>
-                    <Link to={'/home'}>
-                    <button>Volver</button>
-                    </Link>
-                </div>
+
+                        {/* BOTON VOLVER */}
+                        <div className={S.btnVolver}>
+                            <Link to={'/home'}>
+                            <button>Volver</button>
+                            </Link>
+                        </div>
             </form>
 
 

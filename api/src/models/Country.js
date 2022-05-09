@@ -9,7 +9,6 @@ module.exports = (sequelize) => {
       primaryKey: true,
       allowNull: false,
       unique: true,
-     
     },
     name: {
       type: DataTypes.STRING, 
@@ -18,15 +17,12 @@ module.exports = (sequelize) => {
     imagen:{ 
       type: DataTypes.STRING, 
       validate: {isUrl: true}
-      // allowNull: false,
     },
     continente:{
       type: DataTypes.STRING,
-      // allowNull: false, 
     },
     capital:{
       type: DataTypes.STRING,
-       
     },
     subregion:{
       type: DataTypes.STRING,
