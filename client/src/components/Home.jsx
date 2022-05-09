@@ -138,7 +138,7 @@ return(
         
         <SearchBar />
 
-         {/* <Nav onSearch={onSearch}/> */}
+     
 
         <div className={S.crearConteiner}>
             <Link to={'/create'}>
