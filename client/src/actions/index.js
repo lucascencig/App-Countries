@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export  function  getApiTotal(){
     return function(dispatch){
-        return fetch("https://restcountries.com/v3/all")
+        return fetch("http://localhost:3001/countries")
         .then(res => res.json())
         .then(country =>
             dispatch({type: 'GET_COUNTRIES', payload: country}))
@@ -11,10 +11,8 @@ export  function  getApiTotal(){
 }
 
 export  function getCountriesName(name){
-
-    
     return function(dispatch){
-        return fetch(`https://restcountries.com/v3/name/${name}`)
+        return fetch(`http://localhost:3001/countries/${name}`)
         .then(r => r.json())
         .then((r_json) => {
             
@@ -52,7 +50,7 @@ export function getActivities(payload){
 
 export function getDetail(id){
     return function(dispatch){
-                return fetch(`https://restcountries.com/v3/alpha/${id}`)
+                return fetch(`http://localhost:3001/countries/${id}`)
                 .then(r => r.json())
                 .then((r_json) => {
                     
@@ -71,6 +69,10 @@ export function ordenPoblacion(payload){
 
 export function ordenContinente(payload){
     return {type: 'ORDER_BY_CONTINENT', payload: payload}
+}
+
+export function ordenActividades(payload){
+    return {type: 'ORDEN_BY_ACTIVITY', payload: payload}
 }
 // export function getDetail(id) {
 

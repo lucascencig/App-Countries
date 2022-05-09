@@ -4,40 +4,30 @@ const { Country } = require('../db');
 
 
 const loadDB = async ()=> {
-  try{
-   
-    const apiTotal = await axios.get("https://restcountries.com/v3/all")
-    let resultTotal = await apiTotal.data.map(e => {
-        return{
-            idPais: e.cca3,
-            name: e.name.common,
-            imagen: e.flags[1],
-            continente: e.continents[0],
-            capital: e.capital? e.capital[0]: "null" ,
-            subregion: e.subregion? e.subregion :"null",
-            area: e.area,
-            poblacion: e.population
-        }
-    })
-    await resultTotal.map(async e => {
-        Country.create(
-            {
-            idPais: e.idPais,
-            name: e.name,
-            imagen: e.imagen,
-            continente: e.continente,
-            capital: e.capital,
-            subregion: e.subregion,
-            area: e.area,
-            poblacion: e.poblacion
-        })
-        
-    })
-
-}catch(e){
-    console.log(e)
-}
-}
+  
+  try {
+    const apiInfo = (await axios.get("https://restcountries.com/v3/all")).data;
+    await apiInfo.map((element) => {
+      Country.findOrCreate({
+        where: {
+          idPais: element.cca3,
+          name: element.name.common,
+          imagen: element.flags[1],
+          continente: element.continents[0],
+          capital: element.capital ? element.capital[0] : "Capital not found",
+          subregion: element.subregion
+            ? element.subregion
+            : "Subregion not found",
+          area: element.area,
+          poblacion: element.population
+        },
+      });
+    });
+    return "Countries successfully added in database...";
+  } catch (e) {
+    console.log("/api/src/routes/apiInfo.js apiInfo error: " + e);
+  }
+};
 
 
 module.exports = loadDB;

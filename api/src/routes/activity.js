@@ -1,27 +1,27 @@
 const express = require("express");
 // const {  Activities } = require("../../../client/src/components/Activity");
 const router = express.Router();
-require('dotenv').config();
+
 
 const {Activity, Country} = require("../db");
-
+router.use(express.json())
 
 router.post('/', async(req,res, next)=>{
-    const { name, dificultad, duracion, temporada, paiss} = req.body
+    const { name, dificultad, duracion, temporada, countries} = req.body
 
     try{
 
         let activityCreate = await Activity.create({
              name, dificultad, duracion, temporada
         })
-        paiss.map(async (countryId) => {
+        countries.map(async (countryId) => {
             const foundCountry = await Country.findAll({
               where: { idPais: countryId },
             });
             if (foundCountry) activityCreate.addCountries(foundCountry);
           });
        
-        res.send("Actividad Creada!")
+        res.status(201).send("Actividad Creada!")
         // console.log(activityCreate)
     }
     catch(err){
@@ -33,22 +33,10 @@ router.post('/', async(req,res, next)=>{
 router.get('/', async(req,res)=>{
     try{
         const dbData =  await Activity.findAll({ 
-            include:{model: Country,   atributes: ["name"], through:{ attributes: []}
-        }
+            include:{model: Country,   attributes: ["name", "idPais"]}
     })
-        console.log(dbData)
-        let resultado = await dbData?.map(r => {
-                return {
-                    id: r.ID,
-                    name: r.name,
-                    dificultad: r.dificultad, 
-                    duracion: r.duracion,
-                    temporada: r.temporada,
-                    //  activities: Activity.Country?.map(r => r.name),
-                }
-            });
-            res.json(resultado)
-           
+        res.json(dbData)
+      
     }catch (err) {
     console.error(err);
     }

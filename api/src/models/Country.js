@@ -16,7 +16,8 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
     imagen:{ 
-      type: DataTypes.BLOB, //BUSCAR DATATYPE PARA IMAGEN.
+      type: DataTypes.STRING, 
+      validate: {isUrl: true}
       // allowNull: false,
     },
     continente:{

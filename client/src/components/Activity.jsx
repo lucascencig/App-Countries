@@ -12,7 +12,8 @@ export default function Activities(){
         name: "",
         dificultad: "",
         duracion: "",
-        temporada: ""
+        temporada: "",
+  
 });
 
 

@@ -31,22 +31,39 @@
     margin-top: 200px;
     width: 200px;
     height: 200px;
-    border: solid 1px red;
+    border: solid 1px rgb(0, 0, 0);
     border-radius: 50%;
-    background-color: rgba(0, 255, 255, 0.486);
+    background-color: rgba(3, 93, 3, 0.793);
+    animation: girar 5s linear infinite;
 }
 .continentes{
     width: 50px;
     height: 50px;
-    border: solid 1px red;
+    border: solid 1px rgb(0, 0, 0);
     background-color: green;
+    box-shadow:  rgb(140, 222, 16)  5px 5px 10px ;
     border-radius: 50%;
-    transform: translateY(50px)translateX(50px);
-    animation: girar 5s linear infinite;
+    transform: translateY(40px)translateX(50px);
+    animation: parpadear 5s linear infinite;
 }
+@keyframes parpadear {
+    0%{ box-shadow: rgba(140, 222, 16, 0)  5px 5px 10px ;}
+    50%{ box-shadow: rgb(140, 222, 16)  5px 5px 10px ;}
+    100%{ box-shadow: rgba(140, 222, 16, 0)  5px 5px 10px ;}
+}
+
 @keyframes girar {
-    0%{ transform: translateY(50px)translateX(50px);}
-    10%{ transform: translateY(50px)translateX(40px);}
+    0%{ transform: rotate(0deg);}
+    10%{ transform: rotate(36deg);}
+    20%{ transform: rotate(72deg);}
+    30%{ transform: rotate(108deg);}
+    40%{ transform: rotate(144deg);}
+    50%{ transform: rotate(180deg);}
+    60%{ transform: rotate(216deg);}
+    70%{ transform: rotate(252deg);}
+    80%{ transform: rotate(288deg);}
+    90%{ transform: rotate(324deg);}
+    100%{ transform: rotate(360deg);}
 }
 
 

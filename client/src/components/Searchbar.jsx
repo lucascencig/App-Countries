@@ -24,7 +24,7 @@ function handleSubmit(e){
     dispatch(getCountriesName(pais))
   }
   catch(err){
-    throw new Error(err)
+    alert('No existe un pais con ese nombre')
   }
 
 }

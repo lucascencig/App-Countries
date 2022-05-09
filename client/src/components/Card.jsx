@@ -36,17 +36,17 @@ import S from '../../../client/src/styles/Card.module.css';
 // }
 // export default connect(mapStateToProps, null)(Countries)
 
-export default function Countries({id, flags, name, capital, continents}){
+export default function Countries({idPais, name, imagen, continente}){
 
 
     return(
         <div className={S.containerCards}>
-        <Link to={'/home/' + id}>
-        <div className={S.card} key={id} >
-                    <img className={S.cardImg} src={flags} alt="bandera" />
+        <Link to={'/home/' + idPais}>
+        <div className={S.card} key={idPais} >
+                    <img className={S.cardImg} src={imagen} alt="bandera" />
                     <h2 className={S.cardNombre}>{name}</h2>
-                    <h3 className={S.cardCapital}>Capital: {capital}</h3>
-                    <h3 className={S.cardContinente}>Continente: {continents}</h3>
+                    <h3 className={S.cardContinente}>Continente: {continente}</h3>
+               
 
 
         </div>

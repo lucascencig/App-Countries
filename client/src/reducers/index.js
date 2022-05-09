@@ -14,7 +14,8 @@ export const rootReducer  = (state = initialState, action) => {
         case 'GET_COUNTRIES':
             return ({
                 ...state,
-                countryAll: action.payload
+                countryAll: action.payload,
+                continentFiltro: action.payload
             })
 
             case 'GET_COUNTRY_NAME':
@@ -44,29 +45,19 @@ export const rootReducer  = (state = initialState, action) => {
             case 'ORDER_BY_ASCENDENTE':
                
                 const countryOrden = action.payload === 'asc' ? state.countryAll.sort((a,b)=>{
-                    if(a.name.common.toLowerCase() > b.name.common.toLowerCase()) return 1
-                    if(a.name.common.toLowerCase() < b.name.common.toLowerCase()) return -1
+                    if(a.name.toLowerCase() > b.name.toLowerCase()) return 1
+                    if(a.name.toLowerCase() < b.name.toLowerCase()) return -1
                    
                 }) : state.countryAll.sort((a,b)=>{
-                    if(a.name.common.toLowerCase() > b.name.common.toLowerCase()) return -1
-                    if(a.name.common.toLowerCase() < b.name.common.toLowerCase()) return 1;
+                    if(a.name.toLowerCase() > b.name.toLowerCase()) return -1
+                    if(a.name.toLowerCase() < b.name.toLowerCase()) return 1;
                 
                 })
 
-                const countryFilterOrden = action.payload === 'asc' ? state.continentFiltro.sort((a,b)=>{
-                    if(a.name.common.toLowerCase() > b.name.common.toLowerCase()) return 1
-                    if(a.name.common.toLowerCase() < b.name.common.toLowerCase()) return -1
-                   
-                }) : state.continentFiltro.sort((a,b)=>{
-                    if(a.name.common.toLowerCase() > b.name.common.toLowerCase()) return -1
-                    if(a.name.common.toLowerCase() < b.name.common.toLowerCase()) return 1;
-                
-                })
-                
                 return({
                     ...state,
                     countryAll: countryOrden,
-                    continentFiltro: countryFilterOrden
+                    continentFiltro: countryOrden
                 })
 //     if(a.name.common.toLowerCase() > b.name.common.toLowerCase()) return 1
 //     else return -1
@@ -79,44 +70,48 @@ export const rootReducer  = (state = initialState, action) => {
 
                 case 'ORDER_BY_POBLACION':
                     const countryOrdenPoblacion = action.payload === 'asc' ? state.countryAll.sort((a,b)=>{
-                        if(a.population > b.population) return 1
-                        if(a.population < b.population) return -1
+                        if(a.poblacion > b.poblacion) return 1
+                        if(a.poblacion < b.poblacion) return -1
                     
                     }) : state.countryAll.sort((a,b)=>{
-                        if(a.population > b.population) return -1
-                        if(a.population < b.population) return 1;
+                        if(a.poblacion > b.poblacion) return -1
+                        if(a.poblacion < b.poblacion) return 1;
                     
                     })
 
-                    const countryOrdenPoblacionDesc = action.payload === 'asc' ? state.continentFiltro.sort((a,b)=>{
-                        if(a.population > b.population) return 1
-                        if(a.population < b.population) return -1
-                    
-                    }) : state.continentFiltro.sort((a,b)=>{
-                        if(a.population > b.population) return -1
-                        if(a.population < b.population) return 1;
-                    
-                    })
                     return({
                         ...state,
                         countryAll: countryOrdenPoblacion,
-                        continentFiltro: countryOrdenPoblacionDesc
+                        continentFiltro: countryOrdenPoblacion
                     })
 
                     case 'ORDER_BY_CONTINENT':
-                        const country_All = state.countryAll
-                        const filtroContintent = action.payload === 'Todos' ? 
-                        state.countryAll : country_All.filter(country => {
-                   
-                            if(country.continents.length > 0){                                
-                                if(country.continents.find(e => e === action.payload)) return country;
-                            }
-                            console.log(country)
-                        })
-                        return({
-                            ...state,
-                            continentFiltro: filtroContintent
-                        })
+                        const country_All = state.continentFiltro;
+                        const filtroContinent =
+                          action.payload === "Todos"
+                            ? state.countryAll
+                            : country_All.filter(
+                                (country) => country.continente === action.payload
+                              );
+                        return {
+                          ...state,
+                          countryAll: filtroContinent,
+                        };
+
+                    case 'ORDEN_BY_ACTIVITY':
+                        const countriesAct = state.continentFiltro
+                        const activityFilter =
+                          action.payload === "Actividades"
+                            ? countriesAct
+                            : countriesAct.filter(
+                                (e) =>
+                                  e.activities &&
+                                  e.activities.map((e) => e.name).includes(action.payload)
+                              );
+                        return {
+                          ...state,
+                          countryAll: activityFilter
+                        };
                     
         default: return state
     }

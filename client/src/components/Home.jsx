@@ -1,7 +1,7 @@
 import {useState, useEffect}  from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import {getApiTotal, ordenAsc, ordenPoblacion, ordenContinente, getActivities} from '../actions/index';
+import {getApiTotal, ordenAsc, ordenPoblacion, ordenContinente, getActivities, ordenActividades} from '../actions/index';
 import Card from '../../../client/src/components/Card.jsx';
 import Countries from '../components/Card';
 import Activity from '../../../client/src/components/Activity.jsx';
@@ -18,6 +18,7 @@ export default function Home(){
 const dispatch = useDispatch();
 const allCountries = useSelector((state) => state.countryAll)
 const continentFiltro = useSelector((state) => state.continentFiltro)
+const activities = useSelector((state)=> state.activities)
 const [orden, setOrden] = useState(''); 
 const [ordenPorPoblacion, setOrdenPorPoblacion] = useState('');
 const [filtroClick, setFiltroClick] = useState(false)
@@ -66,113 +67,18 @@ function handleOrdenContinente(e){
     filtro()
 }
 
+function handleOrdenActivity(e){
+    e.preventDefault();
+    dispatch(ordenActividades(e.target.value))
+    setCurrentPage(1)
+    setOrden(`${e.target.value}`)
+    filtro()
+}
+
 function filtro(){
     setFiltroClick(false)
 }
 
-if(continentFiltro.length > 0){
-
-const currentCountries =  continentFiltro.slice(indexCountriesFirst, indexCountriesLast)
-
-    return(
-        <div className={S.containerHome}>
-        {/* <Loader /> */}
-
-        
-
-
-            <h1 className={S.tituloPrincipal}>Countries App</h1>
-
-            <div className={S.navbar}>
-
-            <div className={S.selectTwo}>
-                <label htmlFor="">Orden alfabético</label>
-                <select defaultValue="Orden Alfafebético" onChange={(e) => handleFilterOrder(e)} name="" id="">
-                    <option>Orden</option>
-                    <option value="asc">Aa-Zz</option>
-                    <option value="desc">Zz-Aa</option>
-                </select>
-            </div>
-
-            <div className={S.selectOne}>
-            
-                <label htmlFor="">Ordenar por continente:</label>
-                    <select  defaultValue="Todos" onChange={(e) => handleOrdenContinente(e)} name="" id="" key="1">
-                        <option value="Todos">Todos</option>
-                        <option value="South America">South America</option>
-                        <option value="North America">North America</option>
-                        <option value="Europe">Europa</option>
-                        <option value="Asia">Asia</option>
-                        <option value="Africa">Africa</option>
-                        <option value="Oceania">Oceania</option>
-                        <option value="Antarctica">Antarctica</option>
-                    </select>
-                </div>
-
-
-            <div className={S.selectThree}>
-            <label htmlFor="">Poblacion</label>
-                <select defaultValue="Orden Alfafebético" onChange={(e) => handleFilterPoblacion(e)} name="" id="">
-                    <option>Población</option>
-                    <option value="asc">Menor población</option>
-                    <option value="desc">Mayor población</option>
-                </select>
-            </div>
-            
-            <div className={S.selectFour}>
-            <label htmlFor="">Actividades</label>
-                <select defaultValue="Actividades"  name="" id="">
-                    <option>Actividad</option>
-                    <option value="asc"></option>
-                    <option value="desc"></option>
-                </select>
-            </div>
-            
-            <SearchBar />
-
-             {/* <Nav onSearch={onSearch}/> */}
-
-            <div className={S.crearConteiner}>
-                <Link to={'/create'}>
-                <button className={S.btnCrear}>Crear Actividad</button>
-                </Link>
-            </div>
-
-         
-            
-       
-
-        </div>
-        
-            <Paginacion  countriesPorPagina={countriesPorPagina} allCountries={continentFiltro.length} paginado={paginado} />
-
-            
-
-        <div className={S.conteinerCards}>
-
-                {currentCountries?.map((e) => {
-                    return(
-                        
-                        <div key={e.cca3}>
-
-                        <Countries 
-                        id={e.cca3}
-                        paises={paises}
-                        flags={e.flags[1]}
-                        name={e.name.common}
-                        capital={e.capital}
-                        continents={e.continents}
-                        />
-
-                        </div>
-                    ) 
-                })}
-    </div>
-    
-
-    </div>
-    )   
-}
 
 return(
     <div className={S.containerHome}>
@@ -220,11 +126,14 @@ return(
         
         <div className={S.selectFour}>
         <label htmlFor="">Actividades</label>
-            <select defaultValue="Actividades"  name="" id="">
-                <option>Actividad</option>
-                <option value="asc"></option>
-                <option value="desc"></option>
-            </select>
+        <select onChange={(e)=>{handleOrdenActivity(e)}}>
+            <option value="Actividades">Actividades</option>
+            {activities.map((e)=>{
+                return(
+                    <option value={e.name} key={e.ID}>{e.name}</option>
+                )
+            })}
+        </select>
         </div>
         
         <SearchBar />
@@ -248,15 +157,13 @@ return(
             {currentCountries?.map((e) => {
                 return(
                     
-                    <div key={e.cca3}>
+                    <div key={e.idPais}>
 
                     <Countries 
-                    id={e.cca3}
-                    paises={paises}
-                    flags={e.flags[1]}
-                    name={e.name.common}
-                    capital={e.capital}
-                    continents={e.continents}
+                    idPais={e.idPais}
+                    imagen={e.imagen}
+                    name={e.name}
+                    continente={e.continente}
                     />
 
                     </div>
