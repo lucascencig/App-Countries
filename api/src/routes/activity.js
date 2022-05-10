@@ -25,6 +25,7 @@ router.post('/', async(req,res, next)=>{
     
 })
 
+
 router.get('/', async(req,res)=>{
     try{
         const dbData =  await Activity.findAll({ 
@@ -35,5 +36,6 @@ router.get('/', async(req,res)=>{
     console.error(err);
     }
 })
+
 
 module.exports = router;

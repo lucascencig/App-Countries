@@ -54,7 +54,7 @@ const [error, setError] = useState('')
 
     async function handleSubmit(e){
         
-        if(localState.countries.length > 0){
+        if(localState.countries.length > 0 &&  typeof localState.name === 'string' && localState.name.length > 0){
         dispatch(postActivity(localState))
         setLocalState({
             ID: "",
@@ -68,7 +68,7 @@ const [error, setError] = useState('')
         
         alert("Actividad creada");
     }else{
-        alert('Debe selecionar al menos un pais para la actividad.')
+        alert('Todos los campos deben llenares y debe selecionar al menos un pais para la actividad.')
     }
     }
     

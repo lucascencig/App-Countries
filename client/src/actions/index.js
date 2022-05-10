@@ -46,6 +46,7 @@ export function getActivities(payload){
     }
 }
 
+
 //detalle del pais
 export function getDetail(id){
     return function(dispatch){

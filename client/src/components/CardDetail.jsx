@@ -16,7 +16,20 @@ useEffect(()=>{
 },[dispatch, id])
 
 
-const detalle = useSelector((state) => state.countryDetail)
+let detalle = useSelector((state) => state.countryDetail)
+if(!detalle){
+    detalle = {
+        idPais: "NOT",
+        name: "Not Found",
+        imagen: "https://www.seekpng.com/png/detail/212-2123432_404-error-error-404-in-png.png",
+        continente: "Not Found",
+        capital: "Not Found",
+        subregion: "Not Found ",
+        area: 0,
+        poblacion: 0,
+        activities: []
+      }
+}
 
 const actividades = useSelector((state) => state.activities)
 
@@ -24,10 +37,12 @@ const actividades = useSelector((state) => state.activities)
 
 
 return(
+
     <div>
         <Link to={'/home'}>
             <button className={S.botonVolver}>Volver</button>
         </Link>
+
 
             <div>
                     <div className={S.contenedorCardDetail} key={detalle.idPais} >
@@ -41,7 +56,7 @@ return(
                         <h3>Población: {detalle.poblacion} habitantes</h3>
 
                         {detalle.activities?.map(e => 
-                        <div className={S.actividades}>
+                        <div className={S.actividades} key={detalle.idPais} >
                             <h4><u>Actividad turística:</u> {e.name}</h4>
                             <h5><u>Dificultad:</u> {e.dificultad}</h5>
                             <h5><u>Duración:</u> {e.duracion} horas</h5>

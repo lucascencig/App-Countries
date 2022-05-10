@@ -24,11 +24,20 @@ router.get("/", async (req, res) => {
           return res.json(EncontrarPais);
         }
         return res
-          .status(404)
-          .json({
-            error: "Pais no encontrado",
-            description: "El pais que busco no se encontró",
-          });
+          .status(200)
+          .json([{
+            idPais: "NOT",
+            name: "Not Found",
+            imagen: "https://www.seekpng.com/png/detail/212-2123432_404-error-error-404-in-png.png",
+            continente: "Not Found",
+            capital: "Not Found",
+            subregion: "Not Found ",
+            area: 0,
+            poblacion: 0,
+            createdAt: "Not Found",
+            updatedAt: "Not Found",
+            activities: []
+          }]);
       }
       const countryInDB = await Country.findAll({
         include: { model: Activity },
@@ -75,4 +84,3 @@ const apiyDB = async () => {
 
 
 module.exports = router;
-
