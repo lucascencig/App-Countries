@@ -79,3 +79,9 @@ export function ordenContinente(payload){
 export function ordenActividades(payload){
     return {type: 'ORDEN_BY_ACTIVITY', payload: payload}
 }
+
+
+//eliminar pais seleccionado
+// export function eliminarPaisSeleccionado(payload){
+//     return {type: 'DELETE_PAIS', payload: payload}
+// }

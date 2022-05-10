@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import {postActivity, getActivities, getApiTotal} from '../../../client/src/actions/index';
+import {postActivity, getActivities, getApiTotal, eliminarPaisSeleccionado} from '../../../client/src/actions/index';
 import Activities from '../../../client/src/components/Activity.jsx';
 import S from '../../../client/src/styles/CreateForm.module.css';
 
@@ -54,7 +54,7 @@ const [error, setError] = useState('')
 
     async function handleSubmit(e){
         
-        if(localState.countries.length > 0 &&  typeof localState.name === 'string' && localState.name.length > 0){
+        if(localState.countries.length > 0 &&  typeof localState.name === 'string' && localState.name.length > 0 && typeof localState.temporada === 'string' && localState.temporada.length > 0){
         dispatch(postActivity(localState))
         setLocalState({
             ID: "",
@@ -87,6 +87,10 @@ const [error, setError] = useState('')
     useEffect(()=>{
         dispatch(getApiTotal());
     },[])
+
+    // useEffect(()=>{
+    //     dispatch(eliminarPaisSeleccionado());
+    // },[])
     
     function countrySelect(e){
         if(!localState.countries.includes(e.target.value)){
@@ -97,6 +101,8 @@ const [error, setError] = useState('')
         }
         console.log(localState)
     }
+
+   
     
     return(
 
@@ -165,17 +171,17 @@ const [error, setError] = useState('')
                 </select>
                 {/* <p className={S.error}>Debe seleccionar al menos un para asignarle la actividad.</p> */}
                 <div className={S.paisesSeleccionados}>
-                 <p>{localState.countries.join(' ')}  </p> 
+                 <p>{localState.countries.join(' ')}</p> 
                 </div>
 
 
                 {/* BOTON CREAR ACTIVIDAD */}
                 <h3 className={S.listo}>¿Listo?</h3>
                 <div className={S.btnCreateForm}>
-                    {/* <button onChange={getActivities}>Crear Actividad</button> */}
+                 
                     <button id="boton" onChange={getActivities} value="Crear Actividad" type="submit" >Crear Actividad</button>
                 </div>
-                {/* <p className={S.error}>¡Debe completar todos los datos para crear!</p> */}
+               
 
 
                         {/* BOTON VOLVER */}
