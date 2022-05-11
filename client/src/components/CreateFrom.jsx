@@ -59,7 +59,8 @@ const [error, setError] = useState('')
             && localState.name.length > 0 
             && typeof localState.temporada === 'string' 
             && localState.temporada.length > 0
-            ){
+            && localState.duracion.length > 0
+            && localState.dificultad.length > 0){
         dispatch(postActivity(localState))
         setLocalState({
             ID: "",
@@ -93,9 +94,7 @@ const [error, setError] = useState('')
         dispatch(getApiTotal());
     },[])
 
-    // useEffect(()=>{
-    //     dispatch(eliminarPaisSeleccionado());
-    // },[])
+
     
     function countrySelect(e){
         if(!localState.countries.includes(e.target.value)){

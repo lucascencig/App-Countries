@@ -23,7 +23,9 @@ function handleSubmit(e){
   try{
     if(pais.length){
     dispatch(getCountriesName(pais))
-  }alert('Debe escribir un nombre de un pais')
+  }else {
+    alert('Debe escribir un nombre de un pais')
+  }
   }
   catch(err){
     throw new Error(err)
