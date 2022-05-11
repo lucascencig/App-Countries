@@ -77,7 +77,7 @@ export const rootReducer  = (state = initialState, action) => {
                     })
 
 
-
+            
 
                     case 'ORDER_BY_CONTINENT':
                         const country_All = state.continentFiltro;

@@ -70,9 +70,7 @@ router.get("/:idPais", async(req, res) => {
     }
 })  
 
-// router.delete('/', async(req, res) => {
 
-// })
 
 const apiyDB = async () => {
     const apiTotal = await apiTotal();

@@ -37,7 +37,7 @@ const actividades = useSelector((state) => state.activities)
 
 
 return(
-
+  
     <div>
         <Link to={'/home'}>
             <button className={S.botonVolver}>Volver</button>
@@ -66,5 +66,6 @@ return(
                     </div>
             </div>
     </div>
+    
 )
 }

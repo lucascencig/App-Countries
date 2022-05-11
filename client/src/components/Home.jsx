@@ -28,6 +28,9 @@ const [countriesPorPagina, setcountriesPorPagina] =useState(9)
 const indexCountriesLast = curretPage * countriesPorPagina
 const indexCountriesFirst = indexCountriesLast - countriesPorPagina
 const currentCountries = allCountries.slice(indexCountriesFirst, indexCountriesLast)
+
+
+
 const paginado = (pageNumber)=>{
 setCurrentPage(pageNumber)
 }
@@ -79,13 +82,20 @@ function filtro(){
     setFiltroClick(false)
 }
 
+function handlePoblacionCinco(e){
+    e.preventDefault();
+    dispatch(ordenPoblacion(e.target.value))
+    setCurrentPage(1)
+    setcountriesPorPagina(3)
+    
+}
 
 return(
     <div className={S.containerHome}>
     
 
 
-
+        <button onClick={(e)=>handlePoblacionCinco(e)}>Poblacion de 5 paises</button>
 
         <h1 className={S.tituloPrincipal}>Countries App</h1>
 

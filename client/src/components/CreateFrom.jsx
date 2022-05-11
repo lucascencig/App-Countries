@@ -86,6 +86,7 @@ const [error, setError] = useState('')
         })
     }
 
+
     useEffect(()=>{
         dispatch(getActivities());
     },[])
@@ -106,7 +107,12 @@ const [error, setError] = useState('')
         console.log(localState)
     }
 
-   
+    function handleDelete(e){
+        setLocalState({
+            ...localState,
+            countries: localState.countries.filter(c => c !== e)
+        })
+    }
     
     return(
 
@@ -174,9 +180,10 @@ const [error, setError] = useState('')
                     )}
                 </select>
                 {/* <p className={S.error}>Debe seleccionar al menos un para asignarle la actividad.</p> */}
-                <div className={S.paisesSeleccionados}>
+                {/* <div className={S.paisesSeleccionados}>
                  <p>{localState.countries.join(' ')}</p> 
-                </div>
+                </div> */}
+
 
 
                 {/* BOTON CREAR ACTIVIDAD */}
@@ -195,7 +202,15 @@ const [error, setError] = useState('')
                             </Link>
                         </div>
             </form>
-
+                        <div className={S.contenedor}>
+                            {localState.countries.map((e, index) =>
+                                <div className={S.option} key={index}>
+                                    <div className={S.optionp}>
+                                        <p>{e}</p>
+                                        <button onClick={() => handleDelete(e)}>X</button>
+                                    </div>
+                                </div>)}
+                        </div>
 
         </div>
         
