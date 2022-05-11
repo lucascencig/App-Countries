@@ -7,7 +7,7 @@ import S from '../../../client/src/styles/Card.module.css';
 
 
 
-export default function Countries({idPais, name, imagen, continente}){
+export default function Countries({idPais, name, imagen, continente, poblacion}){
     return(
         <div className={S.containerCards}>
             <Link to={'/home/' + idPais}>
@@ -15,6 +15,8 @@ export default function Countries({idPais, name, imagen, continente}){
                     <img className={S.cardImg} src={imagen} alt="bandera" />
                     <h2 className={S.cardNombre}>{name}</h2>
                     <h3 className={S.cardContinente}>Continente: {continente}</h3>
+                    <h3 className={S.cardContinente}>Poblacion: {poblacion}</h3>
+
                 </div>
             </Link>
         </div>

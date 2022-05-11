@@ -82,7 +82,7 @@ function filtro(){
 
 return(
     <div className={S.containerHome}>
-    {/* <Loader /> */}
+    
 
 
 
@@ -164,6 +164,7 @@ return(
                     imagen={e.imagen}
                     name={e.name}
                     continente={e.continente}
+                    poblacion={e.poblacion}
                     />
 
                     </div>
@@ -175,4 +176,3 @@ return(
 </div>
 )
 }
-// export default connect(null, {getApiTotal})(Home);

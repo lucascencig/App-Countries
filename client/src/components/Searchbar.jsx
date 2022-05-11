@@ -21,10 +21,12 @@ function handleChange(e){
 function handleSubmit(e){
   e.preventDefault();
   try{
+    if(pais.length){
     dispatch(getCountriesName(pais))
+  }alert('Debe escribir un nombre de un pais')
   }
   catch(err){
-    alert('No existe un pais con ese nombre')
+    throw new Error(err)
   }
 }
 

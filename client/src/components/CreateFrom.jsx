@@ -54,7 +54,12 @@ const [error, setError] = useState('')
 
     async function handleSubmit(e){
         
-        if(localState.countries.length > 0 &&  typeof localState.name === 'string' && localState.name.length > 0 && typeof localState.temporada === 'string' && localState.temporada.length > 0){
+        if(localState.countries.length > 0 
+            &&  typeof localState.name === 'string' 
+            && localState.name.length > 0 
+            && typeof localState.temporada === 'string' 
+            && localState.temporada.length > 0
+            ){
         dispatch(postActivity(localState))
         setLocalState({
             ID: "",

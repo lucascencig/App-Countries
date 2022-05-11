@@ -90,7 +90,6 @@ export const rootReducer  = (state = initialState, action) => {
                         return {
                         ...state,
                         countryAll: filtroContinent,
-                        
                         };
 
 
@@ -112,12 +111,8 @@ export const rootReducer  = (state = initialState, action) => {
                         };
                     
 
-                        // case 'DELETE_PAIS':
-                        //     return{
-                        //         ...state,
-                        //         countryAll: action.payload
-                        //     }
-
+                       
+                        
 
                         
         default: return state
