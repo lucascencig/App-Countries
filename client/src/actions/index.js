@@ -1,31 +1,29 @@
 import axios from 'axios';
 
 //todos los paises
-export  function  getApiTotal(){
+export  function  getApiTotal(payload){
     return function(dispatch){
         return fetch("http://localhost:3001/countries")
         .then(res => res.json())
         .then(country =>
             dispatch({type: 'GET_COUNTRIES', payload: country}))
     }
-    
 }
+
 
 //paises por nombre
 export  function getCountriesName(name){
-    return function(dispatch){
-        return fetch(`http://localhost:3001/countries/?name=${name}`)
-        .then(r => r.json())
-        .then((r_json) => {
-            dispatch({type: 'GET_COUNTRY_NAME', payload: r_json})
-        })
+    return (dispatch) => {
+        return axios.get(`http://localhost:3001/countries/?name=${name}`)
+        .then((res)=> dispatch({type: 'GET_COUNTRY_NAME', payload: res.data}))
+
     }
-   
 }
+
 
 //postear actividad
 export  function postActivity(payload){
-    return async function(dispatch){
+    return async function(){
         try{
             const respuesta = await axios.post('http://localhost:3001/activity', payload)
             return respuesta;

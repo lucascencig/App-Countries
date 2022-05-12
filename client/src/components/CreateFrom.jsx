@@ -107,12 +107,6 @@ const [error, setError] = useState('')
         console.log(localState)
     }
 
-    function handleDelete(e){
-        setLocalState({
-            ...localState,
-            countries: localState.countries.filter(c => c !== e)
-        })
-    }
     
     return(
 
@@ -158,13 +152,13 @@ const [error, setError] = useState('')
                         <p className={S.numrangoCinco}>5</p>
                     </div>
                     <input  className={S.inpRange} onChange={handleChange} type="range" value={localState.duracion} name="duracion" min="1" max="5"/>
-                    {/* <p className={S.error}>La duración es obligatoria de 1 a 5.</p> */}
+                   
 
 
                 {/* TEMPORADA */}
                 <label htmlFor="">Temporada: "Verano", "Invierno", "Otoño", "Primavera"</label>
                     <input  type="text" onChange={validarInputTemporada} value={localState.temporada} name="temporada" placeholder="Temporada"/>
-                    {/* <p className={S.error}>Debe tener una temporada para la actividad.</p> */}
+                   
                         <div className={S.error}>
                             <p>{error !== 'Debe tener un valor de temporada'? null  : <p className={S.error}>Debe tener una temporada para la actividad</p> } </p>
                         </div>
@@ -179,11 +173,11 @@ const [error, setError] = useState('')
                     
                     )}
                 </select>
-                {/* <p className={S.error}>Debe seleccionar al menos un para asignarle la actividad.</p> */}
-                {/* <div className={S.paisesSeleccionados}>
-                 <p>{localState.countries.join(' ')}</p> 
-                </div> */}
-
+               
+                <div className={S.paisesSeleccionados}>
+                 <p>{localState.countries.join(' ')}</p>  
+                </div>
+                     
 
 
                 {/* BOTON CREAR ACTIVIDAD */}
@@ -202,15 +196,8 @@ const [error, setError] = useState('')
                             </Link>
                         </div>
             </form>
-                        <div className={S.contenedor}>
-                            {localState.countries.map((e, index) =>
-                                <div className={S.option} key={index}>
-                                    <div className={S.optionp}>
-                                        <p>{e}</p>
-                                        <button onClick={() => handleDelete(e)}>X</button>
-                                    </div>
-                                </div>)}
-                        </div>
+
+                       
 
         </div>
         

@@ -7,8 +7,7 @@ import Countries from '../components/Card';
 import Activity from '../../../client/src/components/Activity.jsx';
 import Paginacion from "./Paginado";
 import SearchBar from "../../../client/src/components/SearchBar.jsx";
-import Nav from "../../../client/src/components/Nav.jsx";
-import Loader from '../../../client/src/components/Loader.jsx';
+
 
 import S from '../../../client/src/styles/Home.module.css'
 
@@ -46,7 +45,6 @@ useEffect(()=>{
 
 
 function handleFilterOrder(e){
-    console.log(e.target.value)
     e.preventDefault()
     dispatch(ordenAsc(e.target.value))
     setCurrentPage(1)
@@ -67,7 +65,6 @@ function handleOrdenContinente(e){
     dispatch(ordenContinente(e.target.value))
     setCurrentPage(1)
     setOrden(`${e.target.value}`)
-    filtro()
 }
 
 function handleOrdenActivity(e){
@@ -75,27 +72,13 @@ function handleOrdenActivity(e){
     dispatch(ordenActividades(e.target.value))
     setCurrentPage(1)
     setOrden(`${e.target.value}`)
-    filtro()
 }
 
-function filtro(){
-    setFiltroClick(false)
-}
 
-function handlePoblacionCinco(e){
-    e.preventDefault();
-    dispatch(ordenPoblacion(e.target.value))
-    setCurrentPage(1)
-    setcountriesPorPagina(3)
-    
-}
+
 
 return(
     <div className={S.containerHome}>
-    
-
-
-        <button onClick={(e)=>handlePoblacionCinco(e)}>Poblacion de 5 paises</button>
 
         <h1 className={S.tituloPrincipal}>Countries App</h1>
 
