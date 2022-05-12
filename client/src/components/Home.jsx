@@ -30,10 +30,26 @@ const currentCountries = allCountries.slice(indexCountriesFirst, indexCountriesL
 
 
 
-const paginado = (pageNumber)=>{
-setCurrentPage(pageNumber)
+const paginado = (pageNumber)=> {
+    let page = curretPage;
+    if(pageNumber === 'inicio'){
+        setCurrentPage(1)
+    }
+    else if(pageNumber === 'final'){
+        setCurrentPage(Math.ceil(allCountries.length/countriesPorPagina))
+    }
+    else if(pageNumber === 'siguiente' && curretPage < Math.ceil(allCountries.length/countriesPorPagina)){
+        page = curretPage + 1;
+        setCurrentPage(page)
+    }
+    else if(pageNumber === 'anterior' && curretPage > 1){
+        page = curretPage - 1;
+        setCurrentPage(page)
+    }
+    else if(typeof pageNumber === 'number'){
+        setCurrentPage(pageNumber)
+    }
 }
-
 
 useEffect(()=>{
     dispatch(getApiTotal());
@@ -141,7 +157,7 @@ return(
 
     </div>
     
-        <Paginacion  countriesPorPagina={countriesPorPagina} allCountries={allCountries.length} paginado={paginado} />
+        <Paginacion curretPage={curretPage} countriesPorPagina={countriesPorPagina} allCountries={allCountries.length} paginado={paginado} />
 
         
 
@@ -168,4 +184,6 @@ return(
 
 </div>
 )
+
 }
+

@@ -79,3 +79,6 @@ export function ordenActividades(payload){
     return {type: 'ORDEN_BY_ACTIVITY', payload: payload}
 }
 
+export function detailDelete(payload){
+    return {type: 'DELETE_STATE', payload: payload}
+}

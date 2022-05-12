@@ -111,7 +111,11 @@ export const rootReducer  = (state = initialState, action) => {
                         };
                     
 
-                       
+                       case 'DELETE_STATE':
+                           return{
+                               ...state,
+                               countryDetail: []
+                           }
                         
 
                         

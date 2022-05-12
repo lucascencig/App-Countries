@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import Countries from "./Card";
 import Activities from "./Activity";
-import { getDetail, getActivities } from "../../../client/src/actions/index";
+import { getDetail, getActivities , detailDelete} from "../../../client/src/actions/index";
 import S from '../../../client/src/styles/CardDetail.module.css';
 
 
@@ -34,7 +34,10 @@ if(!detalle){
 const actividades = useSelector((state) => state.activities)
 
 
-
+useEffect( ()=>{
+    return function (){dispatch(detailDelete())}  ;
+    
+}, [dispatch])
 
 return(
   
