@@ -218,3 +218,676 @@
     
 }
 
+
+/*RESPONSIVE*/
+
+/*TABLETS*/
+@media (min-width: 768px) and (max-width: 1400px) {
+
+    .containerForm{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: auto;
+        flex-direction: column;
+        width: 70%;
+        height: 80%;
+        border: solid 2px white;
+        background-color: rgba(148, 148, 148, 0.073);
+        backdrop-filter: blur(5px);
+        margin-top: 50px;
+        padding: 30px;
+        
+    }
+    
+    .tituloForm{
+        color: rgb(255, 255, 255);
+        text-shadow: rgb(0, 0, 0) 2px 2px 2px;
+        font-size: 45px;
+    }
+    
+    .formulario{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        flex-direction: column;
+        width: 90%;
+        height: 80%;
+        color: rgb(0, 0, 0);
+       
+    }
+    
+    .formulario label{
+        font-size: 25px;
+        font-weight: 700;
+        color: white;
+        text-shadow: #000000 2px 2px 2px;
+        margin-bottom: 5px;
+    
+    }
+    .formulario input{
+        width: 20%;
+        height: 30px;
+        text-align: center;
+        margin-bottom: 30px;
+        border-radius: 10px;
+        font-size: 18px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+    .formulario input:focus{
+        width: 90%;
+        height: 30px;
+        text-align: center;
+        margin-bottom: 30px;
+        border-radius: 15px 0px  15px 0px;
+        font-size: 18px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        border: solid 2px rgb(113, 113, 234);
+    }
+    
+    .formulario .inpRange{
+        width: 90%;
+    }
+    
+    .formulario .rango {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        margin-top: 50px;
+        margin-bottom: -20px;
+        width: 90%;
+    }
+    
+    .rango .numrangoUno{
+        font-size: 18px;
+        color: greenyellow;
+    }
+    .rango .numrangoDos{
+        font-size: 18px;
+        color: rgb(255, 255, 47);
+    }
+    .rango .numrangoTres{
+        font-size: 18px;
+        color: rgb(255, 168, 47);
+    }
+    .rango .numrangoCuatro{
+        font-size: 18px;
+        color: rgb(255, 99, 47);
+    }
+    .rango .numrangoCinco{
+        font-size: 18px;
+        color: rgb(255, 47, 47);
+    }
+    .formulario .rangoDuracion{
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        margin-top: 50px;
+        margin-bottom: -20px;
+        width: 90%;
+    }
+    .formulario p{
+        margin-top: -30px;
+        font-size: 25px;
+        font-weight: 700;
+        color: white;
+        text-shadow: rgb(0, 0, 0) 2px 2px 2px;
+    
+    }
+    .selectDuracion{
+        width: 20%;
+        height: 30px;
+        text-align: center;
+        font-size: 18px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+    }
+    .selectTemporada {
+        width: 20%;
+        height: 30px;
+        text-align: center;
+        font-size: 18px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+    }
+    
+    .selectPais{
+        width: 50%;
+        height: 30px;
+        text-align: center;
+        font-size: 18px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        margin-top: 10px;
+        cursor: pointer;
+    }
+    .paisesSeleccionados p{
+        margin-bottom: -50px;
+        border: #00000000 solid 1px;
+        border-radius: 10px;
+        padding: 20px;
+        background-color: rgba(255, 255, 255, 0.167);
+        backdrop-filter: blur(9px);
+    }
+    
+    .listo{
+        text-align: center;
+        font-size: 30px;
+        color: white;
+        text-shadow: rgb(0, 0, 0) 2px 2px 2px;
+        margin-bottom: -40px;
+    }
+    
+    .btnCreateForm button{
+        width: 100%;
+        height: 50px;
+        background-color: white;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        font-size: 18px;
+        font-weight: 700;
+        cursor: pointer;
+        margin-top: 50px;
+    }
+    .btnCreateForm button:hover{
+        transform: scale(0.9);
+        transition: all 0.2s ease;
+        background-color: rgb(135, 150, 235);
+        font-weight: 700;
+    }
+    
+    .btnVolver button{
+        width: 100px;
+        height: 30px;
+        background-color: white;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        font-size: 15px;
+        font-weight: 700;
+        margin-top: 20px;
+    }
+    
+    .btnVolver button:hover{
+        transform: scale(0.9);
+        transition: all 0.2s ease;
+        background-color: rgb(135, 150, 235);
+    
+        font-weight: 700;
+    }
+    
+    .paisesSeleccionados {
+        color: white;
+        width: 90%;
+        height: 50px;
+        margin-top: 50px;
+    }
+    
+    
+    .formulario .error p{
+    
+        font-size: 18px;
+        font-weight: 700;
+        margin-top: 5px; 
+        width: 100%;
+        height: 5%;
+        margin-bottom: 30px;
+        text-align: center;
+        padding: 5px;
+        border-radius: 5px;
+        color: rgb(153, 51, 51);
+        
+    }
+    
+}
+
+
+/*CELULARES HORIZONTALES Y TABLETS VERTICAL*/
+@media (max-width: 767px){
+    .containerForm{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: auto;
+        flex-direction: column;
+        width: 80%;
+        height: 80%;
+        border: solid 2px white;
+        background-color: rgba(148, 148, 148, 0.073);
+        backdrop-filter: blur(5px);
+        margin-top: 50px;
+        padding: 30px;
+        
+    }
+    
+    .tituloForm{
+        color: rgb(255, 255, 255);
+        text-shadow: rgb(0, 0, 0) 2px 2px 2px;
+        font-size: 40px;
+    }
+    
+    .formulario{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        flex-direction: column;
+        width: 90%;
+        height: 80%;
+        color: rgb(0, 0, 0);
+       
+    }
+    
+    .formulario label{
+        font-size: 20px;
+        font-weight: 700;
+        color: white;
+        text-shadow: #000000 2px 2px 2px;
+        margin-bottom: 5px;
+    
+    }
+    .formulario input{
+        width: 20%;
+        height: 30px;
+        text-align: center;
+        margin-bottom: 30px;
+        border-radius: 10px;
+        font-size: 18px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+    .formulario input:focus{
+        width: 90%;
+        height: 30px;
+        text-align: center;
+        margin-bottom: 30px;
+        border-radius: 15px 0px  15px 0px;
+        font-size: 18px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        border: solid 2px rgb(113, 113, 234);
+    }
+    
+    .formulario .inpRange{
+        width: 90%;
+    }
+    
+    .formulario .rango {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        margin-top: 50px;
+        margin-bottom: -20px;
+        width: 90%;
+    }
+    
+    .rango .numrangoUno{
+        font-size: 18px;
+        color: greenyellow;
+    }
+    .rango .numrangoDos{
+        font-size: 18px;
+        color: rgb(255, 255, 47);
+    }
+    .rango .numrangoTres{
+        font-size: 18px;
+        color: rgb(255, 168, 47);
+    }
+    .rango .numrangoCuatro{
+        font-size: 18px;
+        color: rgb(255, 99, 47);
+    }
+    .rango .numrangoCinco{
+        font-size: 18px;
+        color: rgb(255, 47, 47);
+    }
+    .formulario .rangoDuracion{
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        margin-top: 50px;
+        margin-bottom: -20px;
+        width: 90%;
+    }
+    .formulario p{
+        margin-top: -30px;
+        font-size: 25px;
+        font-weight: 700;
+        color: white;
+        text-shadow: rgb(0, 0, 0) 2px 2px 2px;
+    
+    }
+    .selectDuracion{
+        width: 20%;
+        height: 30px;
+        text-align: center;
+        font-size: 18px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+    }
+    .selectTemporada {
+        width: 20%;
+        height: 30px;
+        text-align: center;
+        font-size: 18px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+    }
+    
+    .selectPais{
+        width: 50%;
+        height: 30px;
+        text-align: center;
+        font-size: 18px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        margin-top: 10px;
+        cursor: pointer;
+    }
+    .paisesSeleccionados p{
+        margin-bottom: -50px;
+        border: #00000000 solid 1px;
+        border-radius: 10px;
+        padding: 20px;
+        background-color: rgba(255, 255, 255, 0.167);
+        backdrop-filter: blur(9px);
+    }
+    
+    .listo{
+        text-align: center;
+        font-size: 30px;
+        color: white;
+        text-shadow: rgb(0, 0, 0) 2px 2px 2px;
+        margin-bottom: -40px;
+    }
+    
+    .btnCreateForm button{
+        width: 100%;
+        height: 50px;
+        background-color: white;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        font-size: 18px;
+        font-weight: 700;
+        cursor: pointer;
+        margin-top: 50px;
+    }
+    .btnCreateForm button:hover{
+        transform: scale(0.9);
+        transition: all 0.2s ease;
+        background-color: rgb(135, 150, 235);
+        font-weight: 700;
+    }
+    
+    .btnVolver button{
+        width: 120px;
+        height: 30px;
+        background-color: white;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        font-size: 15px;
+        font-weight: 700;
+        margin-top: 20px;
+    }
+    
+    .btnVolver button:hover{
+        transform: scale(0.9);
+        transition: all 0.2s ease;
+        background-color: rgb(135, 150, 235);
+    
+        font-weight: 700;
+    }
+    
+    .paisesSeleccionados {
+        color: white;
+        width: 90%;
+        height: 50px;
+        margin-top: 50px;
+    }
+    
+    
+    .formulario .error p{
+    
+        font-size: 18px;
+        font-weight: 700;
+        margin-top: 5px; 
+        width: 100%;
+        height: 5%;
+        margin-bottom: 30px;
+        text-align: center;
+        padding: 5px;
+        border-radius: 5px;
+        color: rgb(153, 51, 51);
+        
+    }
+}
+
+/*CELULARES VERTICAL*/
+@media (max-width: 480px){
+    .containerForm{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: auto;
+        flex-direction: column;
+        width: 70%;
+        height: 80%;
+        border: solid 2px white;
+        background-color: rgba(148, 148, 148, 0.073);
+        backdrop-filter: blur(5px);
+        margin-top: 50px;
+        padding: 30px;
+        
+    }
+    
+    .tituloForm{
+        color: rgb(255, 255, 255);
+        text-shadow: rgb(0, 0, 0) 2px 2px 2px;
+        font-size: 35px;
+    }
+    
+    .formulario{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        flex-direction: column;
+        width: 70%;
+        height: 80%;
+        color: rgb(0, 0, 0);
+       
+    }
+    
+    .formulario label{
+        font-size: 20px;
+        font-weight: 700;
+        color: white;
+        text-shadow: #000000 2px 2px 2px;
+        margin-bottom: 5px;
+    
+    }
+    .formulario input{
+        width: 50%;
+        height: 30px;
+        text-align: center;
+        margin-bottom: 30px;
+        border-radius: 10px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+    .formulario input:focus{
+        width: 100%;
+        height: 30px;
+        text-align: center;
+        margin-bottom: 30px;
+        border-radius: 15px 0px  15px 0px;
+        font-size: 18px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        border: solid 2px rgb(113, 113, 234);
+    }
+    
+    .formulario .inpRange{
+        width: 100%;
+    }
+    
+    .formulario .rango {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        margin-top: 50px;
+        margin-bottom: -20px;
+        width: 100%;
+    }
+    
+    .rango .numrangoUno{
+        font-size: 18px;
+        color: greenyellow;
+    }
+    .rango .numrangoDos{
+        font-size: 18px;
+        color: rgb(255, 255, 47);
+    }
+    .rango .numrangoTres{
+        font-size: 18px;
+        color: rgb(255, 168, 47);
+    }
+    .rango .numrangoCuatro{
+        font-size: 18px;
+        color: rgb(255, 99, 47);
+    }
+    .rango .numrangoCinco{
+        font-size: 18px;
+        color: rgb(255, 47, 47);
+    }
+    .formulario .rangoDuracion{
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        margin-top: 50px;
+        margin-bottom: -20px;
+        width: 100%;
+    }
+    .formulario p{
+        margin-top: -30px;
+        font-size: 20px;
+        font-weight: 700;
+        color: white;
+        text-shadow: rgb(0, 0, 0) 2px 2px 2px;
+    
+    }
+    .selectDuracion{
+        width: 50%;
+        height: 30px;
+        text-align: center;
+        font-size: 18px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+    }
+    .selectTemporada {
+        width: 50%;
+        height: 30px;
+        text-align: center;
+        font-size: 18px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+    }
+    
+    .selectPais{
+        width: 50%;
+        height: 30px;
+        text-align: center;
+        font-size: 18px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        margin-top: 10px;
+        cursor: pointer;
+    }
+    .paisesSeleccionados p{
+        margin-bottom: -50px;
+        border: #00000000 solid 1px;
+        border-radius: 10px;
+        padding: 20px;
+        background-color: rgba(255, 255, 255, 0.167);
+        backdrop-filter: blur(9px);
+    }
+    
+    .listo{
+        text-align: center;
+        font-size: 25px;
+        color: white;
+        text-shadow: rgb(0, 0, 0) 2px 2px 2px;
+        margin-bottom: -40px;
+    }
+    
+    .btnCreateForm button{
+        width: 100%;
+        height: 50px;
+        background-color: white;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        font-size: 18px;
+        font-weight: 700;
+        cursor: pointer;
+        margin-top: 50px;
+    }
+    .btnCreateForm button:hover{
+        transform: scale(0.9);
+        transition: all 0.2s ease;
+        background-color: rgb(135, 150, 235);
+        font-weight: 700;
+    }
+    
+    .btnVolver button{
+        width: 100px;
+        height: 30px;
+        background-color: white;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        font-size: 15px;
+        font-weight: 700;
+        margin-top: 20px;
+    }
+    
+    .btnVolver button:hover{
+        transform: scale(0.9);
+        transition: all 0.2s ease;
+        background-color: rgb(135, 150, 235);
+    
+        font-weight: 700;
+    }
+    
+    .paisesSeleccionados {
+        color: white;
+        width: 90%;
+        height: 50px;
+        margin-top: 50px;
+    }
+    
+    
+    .formulario .error p{
+    
+        font-size: 15px;
+        font-weight: 700;
+        margin-top: 5px; 
+        width: 100%;
+        height: 5%;
+        margin-bottom: 30px;
+        text-align: center;
+        padding: 5px;
+        border-radius: 5px;
+        color: rgb(153, 51, 51);
+        
+    }
+    
+}
+

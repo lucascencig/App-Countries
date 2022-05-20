@@ -149,3 +149,489 @@
     background-color: rgba(37, 241, 5, 0.406);
 }
 
+
+
+
+/*RESPONSIVE*/
+
+/*TABLETS*/
+@media (min-width: 768px) and (max-width: 1400px){
+    .conteinerCards{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+    
+    
+    .tituloPrincipal{
+        color:  white;
+        font-size: 45px;
+    }
+    .navbar{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        margin: auto;
+        width: 100%;
+    }
+    
+    .selectOne{
+        color: white;
+        font-size: 15px;
+        font-weight: 700;
+    }
+    .selectOne label{
+        margin-right: 5px;
+    }
+    .selectOne select{
+        width: 100px;
+        height: 30px;
+        text-align: center;
+        font-size: 18px;
+        border-radius: 10px;
+    }
+    .selectOne select:focus{
+        transition: all 0.2s ease;
+        background-color: rgba(0, 128, 0, 0.634);
+        color: white;
+    }
+    
+    
+    .selectTwo{
+        color: white;
+        font-size: 15px;
+        font-weight: 700;
+    }
+    .selectTwo label{
+        margin-right: 5px;
+    }
+    .selectTwo select{
+        width: 100px;
+        height: 30px;
+        text-align: center;
+        font-size: 18px;
+        border-radius: 10px;
+    }
+    .selectTwo select:focus{
+        transition: all 0.2s ease;
+        background-color: rgba(0, 128, 0, 0.634);
+        color: white;
+    }
+    
+    
+    .selectThree{
+        color: white;
+        font-size: 15px;
+        font-weight: 700;
+        
+    }
+    .selectThree label{
+        margin-right: 5px;
+    }
+    .selectThree select{
+        width: 150px;
+        height: 30px;
+        text-align: center;
+        font-size: 18px;
+        border-radius: 10px;
+        transition: all 0.5s ease;
+    }
+    
+    .selectThree select:focus{
+        transition: all 0.2s ease;
+        background-color: rgba(0, 128, 0, 0.634);
+        color: white;
+    }
+    
+    .selectFour {
+        color: white;
+        font-size: 15px;
+        font-weight: 700;
+    }
+    
+    .selectFour label{
+        margin-right: 5px;
+    }
+    .selectFour select{
+        width: 120px;
+        height: 30px;
+        text-align: center;
+        font-size: 18px;
+        border-radius: 10px;
+        transition: all 0.5s ease;
+    }
+    
+    .selectFour select:focus{
+        transition: all 0.2s ease;
+        background-color: rgba(0, 128, 0, 0.634);
+        color: white;
+    }
+    
+    .buscador{
+        color: white;
+        font-size: 18px;
+        font-weight: 700;    
+    }
+    .buscador label{
+        margin-right: 5px;
+    }
+    .buscador input{
+        width: 150px;
+        height: 30px;
+        margin-right: 5px;
+        text-align: center;
+        font-size: 18px;
+        border-radius: 10px;
+    }
+    .buscador button{
+        width: 80px;
+        height: 40px;
+        font-size: 18px;
+        font-weight: 700;
+    }
+    
+    .btnCrear{
+        width: 120px;
+        height: 50px;
+        font-size: 15px;
+        font-weight: 700;
+        border-radius: 10px;
+        cursor:  pointer;
+        margin-top: 20px;
+    }
+    .btnCrear:hover{
+        transform: scale(0.9);
+        font-weight: 700;
+        background-color: rgb(109, 109, 237);
+    }
+    .btnCrear:focus{
+        background-color: rgba(37, 241, 5, 0.406);
+    }
+    
+}
+
+/*CELULARES HORIZONTALES Y TABLETS VERTICAL*/
+@media (max-width: 767px){
+    .conteinerCards{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+    
+    
+    .tituloPrincipal{
+        color:  white;
+        font-size: 40px;
+    }
+    .navbar{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction:column-reverse;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        width: 100%;
+    }
+    
+    .selectOne{
+        color: white;
+        font-size: 15px;
+        font-weight: 700;
+        margin-top: 20px;
+    }
+    .selectOne label{
+        margin-right: 5px;
+    }
+    .selectOne select{
+        width: 100px;
+        height: 30px;
+        text-align: center;
+        font-size: 18px;
+        border-radius: 10px;
+    }
+    .selectOne select:focus{
+        transition: all 0.2s ease;
+        background-color: rgba(0, 128, 0, 0.634);
+        color: white;
+    }
+    
+    
+    .selectTwo{
+        color: white;
+        font-size: 15px;
+        font-weight: 700;
+        margin-top: 20px;
+    }
+    .selectTwo label{
+        margin-right: 5px;
+    }
+    .selectTwo select{
+        width: 100px;
+        height: 30px;
+        text-align: center;
+        font-size: 18px;
+        border-radius: 10px;
+    }
+    .selectTwo select:focus{
+        transition: all 0.2s ease;
+        background-color: rgba(0, 128, 0, 0.634);
+        color: white;
+    }
+    
+    
+    .selectThree{
+        color: white;
+        font-size: 15px;
+        font-weight: 700;
+        margin-top: 20px;
+        
+    }
+    .selectThree label{
+        margin-right: 5px;
+    }
+    .selectThree select{
+        width: 150px;
+        height: 30px;
+        text-align: center;
+        font-size: 18px;
+        border-radius: 10px;
+        transition: all 0.5s ease;
+    }
+    
+    .selectThree select:focus{
+        transition: all 0.2s ease;
+        background-color: rgba(0, 128, 0, 0.634);
+        color: white;
+    }
+    
+    .selectFour {
+        color: white;
+        font-size: 15px;
+        font-weight: 700;
+        margin-top: 20px;
+    }
+    
+    .selectFour label{
+        margin-right: 5px;
+    }
+    .selectFour select{
+        width: 120px;
+        height: 30px;
+        text-align: center;
+        font-size: 18px;
+        border-radius: 10px;
+        transition: all 0.5s ease;
+    }
+    
+    .selectFour select:focus{
+        transition: all 0.2s ease;
+        background-color: rgba(0, 128, 0, 0.634);
+        color: white;
+    }
+    
+    .buscador{
+        color: white;
+        font-size: 18px;
+        font-weight: 700;    
+    }
+    .buscador label{
+        margin-right: 5px;
+    }
+    .buscador input{
+        width: 150px;
+        height: 20px;
+        margin-right: 5px;
+        text-align: center;
+        font-size: 18px;
+        border-radius: 10px;
+    }
+    .buscador button{
+        width: 80px;
+        height: 40px;
+        font-size: 18px;
+        font-weight: 700;
+    }
+    
+    .btnCrear{
+        width: 120px;
+        height: 50px;
+        font-size: 15px;
+        font-weight: 700;
+        border-radius: 10px;
+        cursor:  pointer;
+        margin-bottom: 20px;
+    }
+    .btnCrear:hover{
+        transform: scale(0.9);
+        font-weight: 700;
+        background-color: rgb(109, 109, 237);
+    }
+    .btnCrear:focus{
+        background-color: rgba(37, 241, 5, 0.406);
+    }
+    
+}
+
+/*CELULARES VERTICAL*/
+@media (max-width: 480px){
+    .conteinerCards{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        margin: auto;
+    }
+    
+    
+    .tituloPrincipal{
+        color:  white;
+        font-size: 30px;
+    }
+    .navbar{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction:column-reverse;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        width: 50%;
+    }
+    
+    .selectOne{
+        color: white;
+        font-size: 15px;
+        font-weight: 700;
+        margin-top: 20px;
+    }
+    .selectOne label{
+        margin-right: 5px;
+    }
+    .selectOne select{
+        width: 100px;
+        height: 30px;
+        text-align: center;
+        font-size: 18px;
+        border-radius: 10px;
+    }
+    .selectOne select:focus{
+        transition: all 0.2s ease;
+        background-color: rgba(0, 128, 0, 0.634);
+        color: white;
+    }
+    
+    
+    .selectTwo{
+        color: white;
+        font-size: 15px;
+        font-weight: 700;
+        margin-top: 20px;
+    }
+    .selectTwo label{
+        margin-right: 5px;
+    }
+    .selectTwo select{
+        width: 100px;
+        height: 30px;
+        text-align: center;
+        font-size: 18px;
+        border-radius: 10px;
+    }
+    .selectTwo select:focus{
+        transition: all 0.2s ease;
+        background-color: rgba(0, 128, 0, 0.634);
+        color: white;
+    }
+    
+    
+    .selectThree{
+        color: white;
+        font-size: 15px;
+        font-weight: 700;
+        margin-top: 20px;
+        
+    }
+    .selectThree label{
+        margin-right: 5px;
+    }
+    .selectThree select{
+        width: 150px;
+        height: 30px;
+        text-align: center;
+        font-size: 18px;
+        border-radius: 10px;
+        transition: all 0.5s ease;
+    }
+    
+    .selectThree select:focus{
+        transition: all 0.2s ease;
+        background-color: rgba(0, 128, 0, 0.634);
+        color: white;
+    }
+    
+    .selectFour {
+        color: white;
+        font-size: 15px;
+        font-weight: 700;
+        margin-top: 20px;
+    }
+    
+    .selectFour label{
+        margin-right: 5px;
+    }
+    .selectFour select{
+        width: 120px;
+        height: 30px;
+        text-align: center;
+        font-size: 18px;
+        border-radius: 10px;
+        transition: all 0.5s ease;
+    }
+    
+    .selectFour select:focus{
+        transition: all 0.2s ease;
+        background-color: rgba(0, 128, 0, 0.634);
+        color: white;
+    }
+    
+    .buscador{
+        color: white;
+        font-size: 18px;
+        font-weight: 700;    
+    }
+    .buscador label{
+        margin-right: 5px;
+    }
+    .buscador input{
+        width: 150px;
+        height: 20px;
+        margin-right: 5px;
+        text-align: center;
+        font-size: 18px;
+        border-radius: 10px;
+    }
+    .buscador button{
+        width: 80px;
+        height: 40px;
+        font-size: 18px;
+        font-weight: 700;
+    }
+    
+    .btnCrear{
+        width: 120px;
+        height: 50px;
+        font-size: 15px;
+        font-weight: 700;
+        border-radius: 10px;
+        cursor:  pointer;
+        margin-bottom: 20px;
+    }
+    .btnCrear:hover{
+        transform: scale(0.9);
+        font-weight: 700;
+        background-color: rgb(109, 109, 237);
+    }
+    .btnCrear:focus{
+        background-color: rgba(37, 241, 5, 0.406);
+    }
+}

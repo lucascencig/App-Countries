@@ -66,3 +66,219 @@
     letter-spacing: 2px;
 }
 
+/*RESPONSIVE*/
+
+/*TABLETS*/
+@media (min-width: 768px) and (max-width: 1400px){
+    .contenedorCardDetail{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        flex-direction: column;
+        margin-top: 50px;
+        border: solid 2px rgba(192, 192, 192, 0.404);
+        width: 60%;
+        height: 60%;
+        padding: 30px;
+        background-color: rgba(255, 255, 255, 0);
+        border-radius: 15px 0px 15px 0px;
+        backdrop-filter: blur(7px);
+    }
+    
+    .contenedorCardDetail h2{
+        color:  white;
+        font-size: 40px;
+    }
+    
+    .contenedorCardDetail h3{
+        color:  white;
+    }
+    
+    .bandera{
+        border-radius: 10px;
+    }
+    
+    .botonVolver{
+        margin-top: 30px;
+        width: 100px;
+        height: 30px;
+        border-radius: 15px 0px 15px 0px;
+        font-size: 18px;
+        cursor: pointer;
+        transition: all 0.2s ease;   
+    }
+    
+    .botonVolver:hover{
+        background-color: rgba(118, 153, 236, 0.875);
+        transition: all 0.2s ease;  
+        transform: scale(0.95);
+        font-size: 18px;
+        font-weight: 900px;
+    }
+    .actividades{
+        width: 50%;
+        height: 10%;
+        border: solid rgba(255, 0, 0, 0) 1px;
+        color: rgb(243, 243, 243);
+        font-size: 18px;
+        margin-bottom: 10px;
+        background-color: rgba(128, 128, 128, 0.292);
+        border-radius: 10px;
+    }
+    .actividades h4 u{
+        color: rgb(2, 218, 2);
+        text-shadow: rgba(0, 0, 0, 0.528) 2px 2px 2px;
+        letter-spacing: 2px;
+    }
+    .actividades h5 u{
+        color: rgb(152, 152, 152);
+        text-shadow: rgba(0, 0, 0, 0.528) 2px 2px 2px;
+        font-size: 18px;
+        letter-spacing: 2px;
+    }
+}
+
+/*CELULARES HORIZONTALES Y TABLETS VERTICAL*/
+@media (max-width: 767px){
+    .contenedorCardDetail{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        flex-direction: column;
+        margin-top: 50px;
+        border: solid 2px rgba(192, 192, 192, 0.404);
+        width: 70%;
+        height: 60%;
+        padding: 30px;
+        background-color: rgba(255, 255, 255, 0);
+        border-radius: 15px 0px 15px 0px;
+        backdrop-filter: blur(7px);
+    }
+    
+    .contenedorCardDetail h2{
+        color:  white;
+        font-size: 35px;
+    }
+    
+    .contenedorCardDetail h3{
+        color:  white;
+    }
+    
+    .bandera{
+        border-radius: 10px;
+    }
+    
+    .botonVolver{
+        margin-top: 30px;
+        width: 100px;
+        height: 30px;
+        border-radius: 15px 0px 15px 0px;
+        font-size: 18px;
+        cursor: pointer;
+        transition: all 0.2s ease;   
+    }
+    
+    .botonVolver:hover{
+        background-color: rgba(118, 153, 236, 0.875);
+        transition: all 0.2s ease;  
+        transform: scale(0.95);
+        font-size: 18px;
+        font-weight: 900px;
+    }
+    .actividades{
+        width: 70%;
+        height: 10%;
+        border: solid rgba(255, 0, 0, 0) 1px;
+        color: rgb(243, 243, 243);
+        font-size: 18px;
+        margin-bottom: 10px;
+        background-color: rgba(128, 128, 128, 0.292);
+        border-radius: 10px;
+    }
+    .actividades h4 u{
+        color: rgb(2, 218, 2);
+        text-shadow: rgba(0, 0, 0, 0.528) 2px 2px 2px;
+        letter-spacing: 2px;
+    }
+    .actividades h5 u{
+        color: rgb(152, 152, 152);
+        text-shadow: rgba(0, 0, 0, 0.528) 2px 2px 2px;
+        font-size: 18px;
+        letter-spacing: 2px;
+    }
+}
+
+
+/*CELULARES VERTICAL*/
+@media (max-width: 480px){
+    .contenedorCardDetail{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        flex-direction: column;
+        margin-top: 50px;
+        border: solid 2px rgba(192, 192, 192, 0.404);
+        width: 70%;
+        height: 60%;
+        padding: 30px;
+        background-color: rgba(255, 255, 255, 0);
+        border-radius: 15px 0px 15px 0px;
+        backdrop-filter: blur(7px);
+    }
+    
+    .contenedorCardDetail h2{
+        color:  white;
+        font-size: 30px;
+    }
+    
+    .contenedorCardDetail h3{
+        color:  white;
+    }
+    
+    .bandera{
+        border-radius: 10px;
+    }
+    
+    .botonVolver{
+        margin-top: 30px;
+        width: 120px;
+        height: 30px;
+        border-radius: 15px 0px 15px 0px;
+        font-size: 18px;
+        cursor: pointer;
+        transition: all 0.2s ease;   
+    }
+    
+    .botonVolver:hover{
+        background-color: rgba(118, 153, 236, 0.875);
+        transition: all 0.2s ease;  
+        transform: scale(0.95);
+        font-size: 18px;
+        font-weight: 900px;
+    }
+    .actividades{
+        width: 100%;
+        height: 10%;
+        border: solid rgba(255, 0, 0, 0) 1px;
+        color: rgb(243, 243, 243);
+        font-size: 18px;
+        margin-bottom: 10px;
+        background-color: rgba(128, 128, 128, 0.292);
+        border-radius: 10px;
+    }
+    .actividades h4 u{
+        color: rgb(2, 218, 2);
+        text-shadow: rgba(0, 0, 0, 0.528) 2px 2px 2px;
+        letter-spacing: 2px;
+    }
+    .actividades h5 u{
+        color: rgb(152, 152, 152);
+        text-shadow: rgba(0, 0, 0, 0.528) 2px 2px 2px;
+        font-size: 18px;
+        letter-spacing: 2px;
+    }
+}
+
