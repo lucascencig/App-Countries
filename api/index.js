@@ -19,7 +19,7 @@
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 const server = require('./src/app.js');
 const { conn, Country } = require('./src/db.js');
-const loadDB = require('../api/src/loadDBase/loadDBase');
+const loadDB = require('../api/src/loadDBase/loadDBase.js');
 // Syncing all the models at once.
 conn.sync({ force: true }).then(() => {
   server.listen(process.env.PORT, async () => {
