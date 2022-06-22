@@ -19,14 +19,14 @@
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 const server = require('./src/app.js');
 const { conn, Country } = require('./src/db.js');
-const loadDB = require ('../api/src/loadDBase/loadDBase')
+const loadDB = require('../api/src/loadDBase/loadDBase');
 // Syncing all the models at once.
 conn.sync({ force: true }).then(() => {
-  server.listen(3001, async() => {
+  server.listen(process.env.PORT, async () => {
     console.log('%s listening at 3001'); // eslint-disable-line no-console
-    
-await loadDB()
-  //   const paises = ['argentina', 'venezuela', 'colombia'];
-  //   paises.forEach(async (e) => await Country.create({name: e}))
-  }); 
+
+    await loadDB();
+    //   const paises = ['argentina', 'venezuela', 'colombia'];
+    //   paises.forEach(async (e) => await Country.create({name: e}))
+  });
 });
