@@ -3,17 +3,17 @@ import axios from 'axios';
 //todos los paises
 export function getApiTotal(payload) {
   return function (dispatch) {
-    return fetch('http://localhost:3001/countries')
-      .then(res => res.json())
-      .then(country => dispatch({ type: 'GET_COUNTRIES', payload: country }));
+    axios.get('/countries').then(res => {
+      return dispatch({ type: 'GET_COUNTRIES', payload: res.data });
+    });
   };
 }
 
 //paises por nombre
 export function getCountriesName(name) {
   return dispatch => {
-    return axios
-      .get(`http://localhost:3001/countries/?name=${name}`)
+    axios
+      .get(`/countries/?name=${name}`)
       .then(res => dispatch({ type: 'GET_COUNTRY_NAME', payload: res.data }));
   };
 }
@@ -22,10 +22,7 @@ export function getCountriesName(name) {
 export function postActivity(payload) {
   return async function () {
     try {
-      const respuesta = await axios.post(
-        'http://localhost:3001/activity',
-        payload
-      );
+      const respuesta = await axios.post('/activity', payload);
       return respuesta;
     } catch (err) {
       console.log(err);
@@ -36,22 +33,18 @@ export function postActivity(payload) {
 //todas las actividades
 export function getActivities(payload) {
   return function (dispatch) {
-    return fetch('http://localhost:3001/activity')
-      .then(r => r.json())
-      .then(r_json => {
-        dispatch({ type: 'GET_ALL_ACTIVITIES', payload: r_json });
-      });
+    axios.get('/activity').then(res => {
+      return dispatch({ type: 'GET_ALL_ACTIVITIES', payload: res.data });
+    });
   };
 }
 
 //detalle del pais
 export function getDetail(id) {
   return function (dispatch) {
-    return fetch(`http://localhost:3001/countries/${id}`)
-      .then(r => r.json())
-      .then(r_json => {
-        dispatch({ type: 'GET_COUNTRY_DETAIL', payload: r_json });
-      });
+    axios.get(`/countries/${id}`).then(res => {
+      return dispatch({ type: 'GET_COUNTRY_DETAIL', payload: res.data });
+    });
   };
 }
 
