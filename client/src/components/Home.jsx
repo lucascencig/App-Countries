@@ -14,7 +14,7 @@ import Countries from '../components/Card';
 import Activity from '../../../client/src/components/Activity.jsx';
 import Paginacion from './Paginado';
 // import SearchBar from "../../../client/src/components/SearchBar.jsx";
-// import SearchBar from './SearchBar';
+import SearchBar from '../components/SearchBar.jsx';
 import Footer from './Footer';
 
 import S from '../../../client/src/styles/Home.module.css';
@@ -164,7 +164,7 @@ export default function Home() {
           </select>
         </div>
 
-        {/* <SearchBar /> */}
+        <SearchBar />
 
         <div className={S.crearConteiner}>
           <Link to={'/create'}>
